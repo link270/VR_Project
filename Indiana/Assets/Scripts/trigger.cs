@@ -7,6 +7,7 @@ public class trigger : MonoBehaviour
     public GameObject door;
 
     void OnTriggerEnter(Collider colider){
+        System.Console.WriteLine("here");
         door.transform.position += new Vector3(0, 4, 0);
     }
 }
