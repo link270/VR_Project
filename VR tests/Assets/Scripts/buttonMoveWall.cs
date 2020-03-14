@@ -15,7 +15,7 @@ public class buttonMoveWall : MonoBehaviour
     {
         hoverButton.onButtonDown.AddListener(OnButtonDown);
         hoverButton.onButtonUp.AddListener(OnButtonUp);
-        initPos = new Vector3(wall.transform.position.x,wall.transform.position.y,wall.transform.position.z);
+        initPos = wall.transform.position;
         curPos = initPos;
     }
 
