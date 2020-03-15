@@ -8,7 +8,7 @@ public class PlayerEntered : MonoBehaviour
     
     void OnTriggerEnter (Collider other) 
     {
-        Debug.Log("Wallhere");
+        Debug.Log("Detected a thing");
         Ball.GetComponent<Rigidbody>().useGravity = true;
     }
 }
