@@ -9,7 +9,11 @@ public class Gear : MonoBehaviour
     // Start is called before the first frame update
     public float RPM;
 
+    public int numTeath;
+
     public GameObject gear;
+
+    public bool IsRotating;
 
     void Start()
     {
@@ -18,7 +22,9 @@ public class Gear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Rotate());
+        if(IsRotating){
+            StartCoroutine(Rotate());
+        }
     }
 
 
