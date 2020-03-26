@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e3866ec23d8d343843906f78a05bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHand: {fileID: 0}
 --- !u!114 &258399424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,6 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e3866ec23d8d343843906f78a05bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHand: {fileID: 0}
 --- !u!114 &1054388539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,6 +2988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e3866ec23d8d343843906f78a05bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHand: {fileID: 0}
 --- !u!1 &1343860570
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,7 +5242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5be56a64c3c6c434eb746320e06a27ac, type: 2}
+  - {fileID: 2100000, guid: ceb48f72b3325c74e95838fb760d0ab0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5403,7 +5406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172667970042786}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6, y: 4.4, z: -23}
+  m_LocalPosition: {x: 6, y: 1.75, z: -23}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 3589727849672193662}
@@ -5539,7 +5542,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172667466934768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.20729406
   m_Height: 0.4486602
@@ -5557,6 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e3866ec23d8d343843906f78a05bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHand: {fileID: 0}
 --- !u!114 &8296172667466934773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5624,6 +5628,8 @@ MonoBehaviour:
   gearPresent: 0
   scale: 0.35
   Gear: {fileID: 8296172667466934768}
+  possibleGearPosts:
+  - {fileID: 8296172668668999241}
   offsetTemp: 0
 --- !u!1 &8296172667970042786
 GameObject:
@@ -5653,7 +5659,7 @@ GameObject:
   - component: {fileID: 8296172668668999242}
   m_Layer: 0
   m_Name: GearPost
-  m_TagString: GearPost
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5668,7 +5674,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.31127998
-  m_Height: 0.8113507
+  m_Radius: 0.60998374
+  m_Height: 1.2199675
   m_Direction: 1
-  m_Center: {x: -0.016645024, y: -0.026888167, z: 0.41225162}
+  m_Center: {x: -0.039054327, y: -0.120227, z: 0.41225162}
