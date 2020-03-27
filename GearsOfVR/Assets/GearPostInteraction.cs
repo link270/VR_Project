@@ -40,9 +40,10 @@ public class GearPostInteraction : MonoBehaviour
                 gearPresent = true;
             }
 
-            if(gearPresent && Vector3.Distance(post.transform.position, Gear.transform.position) > .6){
+            if(gearPresent && Vector3.Distance(post.transform.position, Gear.transform.position) > .5){
                 
                 Debug.Log(gearPresent);
+                Gear.GetComponent<SimpleAttach>().myHand.DetachObject(Gear); // detachs hand 
                 Gear.GetComponent<Rigidbody>().useGravity = true; // turns off gravity
                 Gear.GetComponent<Rigidbody>().isKinematic = false;
                 Gear.GetComponent<Gear>().IsRotating = false;
