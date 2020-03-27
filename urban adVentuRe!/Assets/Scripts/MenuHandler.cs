@@ -1,8 +1,9 @@
 ﻿
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR.Extras;
 
-public class SceneHandler : MonoBehaviour
+public class MenuHandler : MonoBehaviour
 {
     public SteamVR_LaserPointer laserPointer;
 
@@ -27,6 +28,7 @@ public class SceneHandler : MonoBehaviour
         else if (e.target.name == "StartButton")
         {
             Debug.Log("Start Button was clicked");
+            SceneManager.LoadScene("MainLevel");
         }
     }
 
