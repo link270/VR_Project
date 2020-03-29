@@ -8,7 +8,6 @@ public class DetectBall : MonoBehaviour
 
     void OnTriggerEnter(Collider colider){
             this.BallPresent = true;
-
     }
 
     void OnTriggerExit(Collider colider){
