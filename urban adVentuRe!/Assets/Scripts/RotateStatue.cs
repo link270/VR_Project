@@ -7,7 +7,7 @@ public abstract class RotateStatue : MonoBehaviour
 {
     public HoverButton hoverButton;
 
-    public GameObject wall;
+    public GameObject statue;
    
     private void Start()
     {
