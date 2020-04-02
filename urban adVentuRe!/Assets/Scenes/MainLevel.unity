@@ -3286,7 +3286,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592532132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -34841,6 +34841,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.022988899
       objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_Name
@@ -36029,7 +36034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af4a26ec86b16641907eebab7b37f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2004509631}
+  trapDoor: {fileID: 1723811749}
+  ball: {fileID: 2004509629}
+  visibleDistance: 15
   angularVelocity: 15
 --- !u!135 &2004509633
 SphereCollider:
@@ -36051,7 +36058,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004509629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36277,6 +36284,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.022988899
       objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_Name
@@ -36360,6 +36372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.022988899
+      objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
