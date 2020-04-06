@@ -39,6 +39,11 @@ public class Arrow : MonoBehaviour
         arrowRigidbody.useGravity = false;
     }
 
+    public void discard()
+    {
+        Destroy(gameObject, 0.0f);
+    }
+
     public void Fire(float pullValue)
     {
         isStopped = false;
@@ -46,7 +51,5 @@ public class Arrow : MonoBehaviour
         arrowRigidbody.isKinematic = false;
         arrowRigidbody.useGravity = true;
         arrowRigidbody.AddForce(transform.forward * (pullValue * speed));
-
-        Destroy(gameObject, 5.0f);
     }
 }

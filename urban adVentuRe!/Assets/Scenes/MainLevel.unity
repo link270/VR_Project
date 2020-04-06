@@ -1270,18 +1270,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101833528}
   m_Mesh: {fileID: 5463638241719867679, guid: 9cebb419299791b40b427d19cd48ccfb, type: 3}
---- !u!114 &134359401 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114000011957598740, guid: dc06161b6d97feb419f45f03b62e14b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1442241099}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &162810826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,7 +2980,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &543149809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3274,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592532132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -34841,6 +34829,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.022988899
       objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_Name
@@ -35425,6 +35418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8542102953145869890, guid: 5c51937e899ec9443a1757aefe9d49cb,
     type: 3}
+  totalArrows: 5
   grabThreashold: 0.15
   start: {fileID: 1932654206}
   end: {fileID: 1808696675}
@@ -35458,7 +35452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Bow: {fileID: 1830177583}
-  m_Pose: {fileID: 134359401}
+  m_Pose: {fileID: 0}
   m_PullAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -36029,7 +36023,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af4a26ec86b16641907eebab7b37f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2004509631}
+  trapDoor: {fileID: 1723811749}
+  ball: {fileID: 2004509629}
+  visibleDistance: 15
   angularVelocity: 15
 --- !u!135 &2004509633
 SphereCollider:
@@ -36051,7 +36047,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004509629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36277,6 +36273,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.022988899
       objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_Name
@@ -36360,6 +36361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.022988899
+      objectReference: {fileID: 0}
+    - target: {fileID: -2195484974005807562, guid: 68b62571b255c324d9dbef9bd8b52e74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
