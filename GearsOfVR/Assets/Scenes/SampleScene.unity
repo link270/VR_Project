@@ -610,7 +610,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.40536788
+      value: 0.8914434
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
@@ -625,7 +625,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9141537
+      value: -0.45313218
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
@@ -635,7 +635,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 47.828003
+      value: 233.89
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 00a49a2a5c2d72d4885ba58eabe2de77,
         type: 3}
@@ -691,6 +691,8 @@ MonoBehaviour:
   gear: {fileID: 806216862}
   IsRotating: 0
   numberOfTeeth: 20
+  IsPlaced: 0
+  PlacedOn: 0
 --- !u!54 &806216864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -807,6 +809,8 @@ MonoBehaviour:
   gear: {fileID: 915295334}
   IsRotating: 0
   numberOfTeeth: 48
+  IsPlaced: 0
+  PlacedOn: 0
 --- !u!54 &915295337
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1004,6 +1008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1233183103}
   - component: {fileID: 1233183102}
+  - component: {fileID: 1233183104}
   m_Layer: 0
   m_Name: GearPost (1)
   m_TagString: Untagged
@@ -1050,6 +1055,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -1.235, y: -0.013, z: 0.62600005}
+--- !u!114 &1233183104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233183101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32821542ec8cc84fae4717869bfe92c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostNum: 2
+  Available: 0
 --- !u!1001 &1350722263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1944,6 +1963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5006512735329387610}
   - component: {fileID: 8296172668668999242}
+  - component: {fileID: 8296172668668999243}
   m_Layer: 0
   m_Name: GearPost
   m_TagString: Untagged
@@ -1969,9 +1989,24 @@ MonoBehaviour:
   AdjacentGearPost: {fileID: 8296172668668999241}
   PossibleGears:
   - {fileID: 915295334}
+  - {fileID: 806216862}
   Post: {fileID: 8296172668668999241}
   CorrectTeethNumber: 48
   AttatchSensitivity: 0.2
   DetatchSensitivity: 0.2
   powerInput: 1
   Scale: 0.15
+--- !u!114 &8296172668668999243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668668999241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32821542ec8cc84fae4717869bfe92c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostNum: 1
+  Available: 0
