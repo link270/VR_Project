@@ -49,6 +49,15 @@ public class GearPostInteraction1 : MonoBehaviour
         foreach(var gear in PossibleGears)
         {
             Debug.Log(Vector3.Distance(gear.transform.position, Post.transform.position));
+
+            if(powered && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent)
+            {
+                gear.GetComponent<Gear>().IsRotating = true;
+            }
+            else{
+                gear.GetComponent<Gear>().IsRotating = false;                
+            }
+
             if(!gear.GetComponent<Gear>().IsPlaced && Post.GetComponent<Post>().Available  && Vector3.Distance(gear.transform.position, Post.transform.position) < AttatchSensitivity)
             {
                 AttachGear(gear);
@@ -59,10 +68,7 @@ public class GearPostInteraction1 : MonoBehaviour
                     CorrectGearPresent = true;
                 }
 
-                if(powered)
-                {
-                    gear.GetComponent<Gear>().IsRotating = true;
-                }
+
                 gear.GetComponent<Gear>().IsPlaced = true;
 
             }
