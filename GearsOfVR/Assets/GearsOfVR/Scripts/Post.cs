@@ -8,6 +8,8 @@ public class Post : MonoBehaviour
 
     public bool Available;
 
+    public int rotationDirection;
+
     private void Start() {
         Available = true;
     }

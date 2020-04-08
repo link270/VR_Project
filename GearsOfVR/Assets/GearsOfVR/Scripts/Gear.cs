@@ -19,6 +19,9 @@ public class Gear : MonoBehaviour
 
     public int PlacedOn;
 
+    public int rotationDirection;
+
+
 
     void Start()
     {
@@ -42,7 +45,7 @@ public class Gear : MonoBehaviour
 
         float rotationProgress = 0;
         // the negitive RPM changes the direction of rotation
-        float perLoop = -RPM * .25f;
+        float perLoop = rotationDirection * RPM * .25f;
 
         gear.transform.Rotate(0.0f, 0.0f, perLoop, Space.Self);
         rotationProgress += perLoop;

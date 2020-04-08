@@ -52,6 +52,7 @@ public class GearPostInteraction1 : MonoBehaviour
 
             if(powered && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent)
             {
+
                 gear.GetComponent<Gear>().IsRotating = true;
             }
             else{
@@ -60,6 +61,7 @@ public class GearPostInteraction1 : MonoBehaviour
 
             if(!gear.GetComponent<Gear>().IsPlaced && Post.GetComponent<Post>().Available  && Vector3.Distance(gear.transform.position, Post.transform.position) < AttatchSensitivity)
             {
+                gear.GetComponent<Gear>().rotationDirection = Post.GetComponent<Post>().rotationDirection;
                 AttachGear(gear);
                 Post.GetComponent<Post>().Available = false;
                 gear.GetComponent<Gear>().PlacedOn = Post.GetComponent<Post>().PostNum;
