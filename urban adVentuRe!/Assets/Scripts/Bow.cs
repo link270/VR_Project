@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    [Header("Assets")]
+    [Header("Arrow")]
     public GameObject arrowPrefab = null;
+    public int totalArrows = 5;
 
     [Header("Bow")]
     public float grabThreashold = 0.15f;
@@ -14,7 +16,10 @@ public class Bow : MonoBehaviour
 
     private Transform pullingHand = null;
     private Arrow currentArrow = null;
+    private Arrow newArrow = null;
     private Animator animator = null;
+    private Queue<Arrow> activeArrows;
+    private bool fired = true;
 
     private float pullValue = 0.0f;
 
@@ -25,12 +30,13 @@ public class Bow : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(CreateArrow(0.0f));
+        activeArrows = new Queue<Arrow>();
+        //StartCoroutine(CreateArrow(0.0f));
     }
 
     private void Update()
     {
-        if(!pullingHand || !currentArrow)
+        if(!pullingHand || !newArrow)
         {
             return;
         }
@@ -62,11 +68,18 @@ public class Bow : MonoBehaviour
         arrowObject.transform.localPosition = new Vector3(0, 0, 0.425f);
         arrowObject.transform.localEulerAngles = Vector3.zero;
 
-        currentArrow = arrowObject.GetComponent<Arrow>();
+        newArrow = arrowObject.GetComponent<Arrow>();
     }
 
     public void Pull(Transform hand)
     {
+
+
+        if (fired)
+        {
+            StartCoroutine(CreateArrow(0.0f));
+            fired = false;
+        }
         float distance = Vector3.Distance(hand.position, start.position);
 
         if (distance > grabThreashold)
@@ -79,7 +92,7 @@ public class Bow : MonoBehaviour
 
     public void Release()
     {
-        if(pullValue > 0.25f)
+        if(pullValue > 0.20f)
         {
             FireArrow();
         }
@@ -89,15 +102,21 @@ public class Bow : MonoBehaviour
         pullValue = 0.0f;
         animator.SetFloat("Blend", 0);
 
-        if (!currentArrow)
-        {
-            StartCoroutine(CreateArrow(0.25f));
-        }
+        //if (!currentArrow)
+        //{
+        //    StartCoroutine(CreateArrow(0.0f));
+        //}
     }
 
     private void FireArrow()
     {
-        currentArrow.Fire(pullValue);
+        fired = true;
+        //newArrow = null;
+        newArrow.Fire(pullValue);
+        activeArrows.Enqueue(newArrow);
+        if (activeArrows.Count > totalArrows)
+        {
+            activeArrows.Dequeue().discard();
+        }
     }
-
 }
