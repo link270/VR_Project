@@ -38,7 +38,7 @@ public class GearPostInteraction1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(AdjacentGearPost.GetComponent<GearPostInteraction1>().powered && CorrectGearPresent || powerInput)
+        if(AdjacentGearPost.GetComponent<GearPostInteraction1>().powered && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent && CorrectGearPresent || powerInput)
         {
             powered = true;
         }
@@ -50,9 +50,9 @@ public class GearPostInteraction1 : MonoBehaviour
         foreach(var gear in PossibleGears)
         {
 
-            if((powered && CorrectGearPresent && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent && gear.GetComponent<Gear>().PlacedOn == Post.GetComponent<Post>().PostNum)|| (gear.GetComponent<Gear>().PlacedOn == Post.GetComponent<Post>().PostNum && Post.GetComponent<GearPostInteraction1>().powerInput))
+            if((powered && CorrectGearPresent && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent && gear.GetComponent<Gear>().PlacedOn == Post.GetComponent<Post>().PostNum)|| (powered && gear.GetComponent<Gear>().PlacedOn == Post.GetComponent<Post>().PostNum && Post.GetComponent<GearPostInteraction1>().powerInput))
             {
-                Debug.Log("Powered: " + powered.ToString() + " Post: " + Post.GetComponent<Post>().PostNum.ToString() +  " Correct Gear: " + CorrectGearPresent.ToString() + " Gear: " + gear.GetComponent<Gear>().numberOfTeeth.ToString() + " Placed: " + gear.GetComponent<Gear>().IsPlaced + " Adjacent Post: " + AdjacentGearPost.GetComponent<Post>().PostNum.ToString() + " Adjacent correct: "  + AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent.ToString());
+                //Debug.Log("Powered: " + powered.ToString() + " Post: " + Post.GetComponent<Post>().PostNum.ToString() +  " Correct Gear: " + CorrectGearPresent.ToString() + " Gear: " + gear.GetComponent<Gear>().numberOfTeeth.ToString() + " Placed: " + gear.GetComponent<Gear>().IsPlaced + " Adjacent Post: " + AdjacentGearPost.GetComponent<Post>().PostNum.ToString() + " Adjacent correct: "  + AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent.ToString());
                 gear.GetComponent<Gear>().IsRotating = true;
             }
 
@@ -70,9 +70,6 @@ public class GearPostInteraction1 : MonoBehaviour
 
                 if(gear.GetComponent<Gear>().numberOfTeeth == CorrectTeethNumber)
                 {
-                    Debug.Log(gear.GetComponent<Gear>().numberOfTeeth);
-
-
                     CorrectGearPresent = true;
                 }
 
@@ -90,7 +87,9 @@ public class GearPostInteraction1 : MonoBehaviour
 
                 foreach(var following in FollowingGearPosts){
                     if(!following.GetComponent<Post>().Available){
+
                         following.GetComponent<Post>().Gear.GetComponent<Gear>().IsRotating = false;
+                        following.GetComponent<GearPostInteraction1>().powered = false;
                     }
                 }
 
