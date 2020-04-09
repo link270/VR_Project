@@ -10,6 +10,8 @@ public class Post : MonoBehaviour
 
     public int rotationDirection;
 
+    public GameObject Gear;
+
     private void Start() {
         Available = true;
     }

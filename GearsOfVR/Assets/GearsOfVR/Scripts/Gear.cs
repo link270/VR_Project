@@ -26,11 +26,15 @@ public class Gear : MonoBehaviour
     void Start()
     {
         PlacedOn = -1;
+        IsPlaced = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!IsPlaced){
+            IsRotating = false;
+        }
         if(IsRotating){
             StartCoroutine(Rotate());
         }

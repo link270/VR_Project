@@ -9,6 +9,8 @@ public class GearPostInteraction1 : MonoBehaviour
     public bool CorrectGearPresent;
     public bool powered;
     public GameObject AdjacentGearPost;
+
+    public List<GameObject> FollowingGearPosts;
     public List<GameObject> PossibleGears;
 
     public GameObject Post;
@@ -36,7 +38,6 @@ public class GearPostInteraction1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(AdjacentGearPost.GetComponent<GearPostInteraction1>().powered);
         if(AdjacentGearPost.GetComponent<GearPostInteraction1>().powered && CorrectGearPresent || powerInput)
         {
             powered = true;
@@ -48,25 +49,30 @@ public class GearPostInteraction1 : MonoBehaviour
 
         foreach(var gear in PossibleGears)
         {
-            Debug.Log(Vector3.Distance(gear.transform.position, Post.transform.position));
 
-            if(powered && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent)
+            if((powered && CorrectGearPresent && gear.GetComponent<Gear>().IsPlaced && AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent && gear.GetComponent<Gear>().PlacedOn == Post.GetComponent<Post>().PostNum))
             {
-
+                Debug.Log("Powered: " + powered.ToString() + " Post: " + Post.GetComponent<Post>().PostNum.ToString() +  " Correct Gear: " + CorrectGearPresent.ToString() + " Gear: " + gear.GetComponent<Gear>().numberOfTeeth.ToString() + " Placed: " + gear.GetComponent<Gear>().IsPlaced + " Adjacent Post: " + AdjacentGearPost.GetComponent<Post>().PostNum.ToString() + " Adjacent correct: "  + AdjacentGearPost.GetComponent<GearPostInteraction1>().CorrectGearPresent.ToString());
                 gear.GetComponent<Gear>().IsRotating = true;
-            }
-            else{
-                gear.GetComponent<Gear>().IsRotating = false;                
             }
 
             if(!gear.GetComponent<Gear>().IsPlaced && Post.GetComponent<Post>().Available  && Vector3.Distance(gear.transform.position, Post.transform.position) < AttatchSensitivity)
             {
+                // set rotate direction
                 gear.GetComponent<Gear>().rotationDirection = Post.GetComponent<Post>().rotationDirection;
+
                 AttachGear(gear);
+                Post.GetComponent<Post>().Gear = gear;
                 Post.GetComponent<Post>().Available = false;
+                GearPresent = true;
+
                 gear.GetComponent<Gear>().PlacedOn = Post.GetComponent<Post>().PostNum;
+
                 if(gear.GetComponent<Gear>().numberOfTeeth == CorrectTeethNumber)
                 {
+                    Debug.Log(gear.GetComponent<Gear>().numberOfTeeth);
+
+
                     CorrectGearPresent = true;
                 }
 
@@ -80,6 +86,14 @@ public class GearPostInteraction1 : MonoBehaviour
                 DettachGear(gear);
                 Post.GetComponent<Post>().Available = true;
                 CorrectGearPresent = false;
+                GearPresent = false;
+
+                foreach(var following in FollowingGearPosts){
+                    if(!following.GetComponent<Post>().Available){
+                        following.GetComponent<Post>().Gear.GetComponent<Gear>().IsRotating = false;
+                    }
+                }
+
 
                 gear.GetComponent<Gear>().IsPlaced = false;
 
