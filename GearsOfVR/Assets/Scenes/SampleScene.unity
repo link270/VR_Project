@@ -1237,6 +1237,7 @@ MonoBehaviour:
   CorrectGearPresent: 0
   powered: 0
   AdjacentGearPost: {fileID: 8296172668668999241}
+  FollowingGearPosts: []
   PossibleGears:
   - {fileID: 806216862}
   - {fileID: 39244061}
@@ -1276,6 +1277,7 @@ MonoBehaviour:
   PostNum: 2
   Available: 0
   rotationDirection: 1
+  Gear: {fileID: 0}
 --- !u!1001 &1350722263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +2196,8 @@ MonoBehaviour:
   CorrectGearPresent: 0
   powered: 0
   AdjacentGearPost: {fileID: 8296172668668999241}
+  FollowingGearPosts:
+  - {fileID: 1233183101}
   PossibleGears:
   - {fileID: 915295334}
   - {fileID: 806216862}
@@ -2219,3 +2223,4 @@ MonoBehaviour:
   PostNum: 1
   Available: 0
   rotationDirection: -1
+  Gear: {fileID: 0}
