@@ -15,7 +15,6 @@ public class Bow : MonoBehaviour
     public Transform socket = null;
 
     private Transform pullingHand = null;
-    private Arrow currentArrow = null;
     private Arrow newArrow = null;
     private Animator animator = null;
     private Queue<Arrow> activeArrows;
@@ -73,13 +72,12 @@ public class Bow : MonoBehaviour
 
     public void Pull(Transform hand)
     {
-
-
         if (fired)
         {
             StartCoroutine(CreateArrow(0.0f));
             fired = false;
         }
+
         float distance = Vector3.Distance(hand.position, start.position);
 
         if (distance > grabThreashold)
@@ -110,10 +108,11 @@ public class Bow : MonoBehaviour
 
     private void FireArrow()
     {
+        Debug.Log("arrow was fired");
         fired = true;
-        //newArrow = null;
         newArrow.Fire(pullValue);
         activeArrows.Enqueue(newArrow);
+        newArrow = null;
         if (activeArrows.Count > totalArrows)
         {
             activeArrows.Dequeue().discard();

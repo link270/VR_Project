@@ -15,7 +15,6 @@ public class Bow : MonoBehaviour
     public Transform socket = null;
 
     private Transform pullingHand = null;
-    private Arrow currentArrow = null;
     private Arrow newArrow = null;
     private Animator animator = null;
     private Queue<Arrow> activeArrows;
