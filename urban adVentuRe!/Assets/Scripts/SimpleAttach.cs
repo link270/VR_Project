@@ -7,7 +7,6 @@ using Valve.VR.InteractionSystem;
 public class SimpleAttach : MonoBehaviour
 {
     private Interactable interactable;
-    public Hand myHand;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +27,6 @@ public class SimpleAttach : MonoBehaviour
     private void HandHoverUpdate(Hand hand)
     {
         GrabTypes grabType = hand.GetGrabStarting();
-        myHand = hand;
         bool isGrabing = hand.IsGrabEnding(gameObject);
 
         if(interactable.attachedToHand == null && grabType != GrabTypes.None)
