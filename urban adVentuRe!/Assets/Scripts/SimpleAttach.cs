@@ -31,7 +31,7 @@ public class SimpleAttach : MonoBehaviour
         myHand = hand;
         bool isGrabing = hand.IsGrabEnding(gameObject);
 
-        if(interactable.attachedToHand == null && grabType != GrabTypes.None)
+        if (interactable.attachedToHand == null && grabType != GrabTypes.None)
         {
             hand.AttachObject(gameObject, grabType);
             hand.HoverLock(interactable);
