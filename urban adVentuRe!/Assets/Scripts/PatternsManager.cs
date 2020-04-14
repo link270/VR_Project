@@ -9,6 +9,8 @@ public class PatternsManager : MonoBehaviour
     public Renderer[] tileRenderers;
     public GameObject[] targets;
     public Renderer[] targetRenderers;
+    public int RoundsToWin = 2;
+    public PuzzleDoor door;
     private Color[] colors = new Color[] {Color.red, Color.green, Color.blue, Color.magenta, Color.yellow, Color.cyan };
     private bool isGameStarted = false;
     private bool isRoundRunning = false;
@@ -18,6 +20,7 @@ public class PatternsManager : MonoBehaviour
     private int [] playerSequence;
     private int playerIndex = 0;
     private float lerpDuration = 0.3f;
+    private int frame = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class PatternsManager : MonoBehaviour
         for (int i = 0; i < tiles.Length; ++i){
             tileRenderers[i] = tiles[i].GetComponent<Renderer>();
             tileRenderers[i].material.color = colors[i];
+            Debug.Log("Name: " + tiles[i].name + ", index: " + i);
 
             tiles[i].AddComponent<PatternTile>();
         }
@@ -41,7 +45,7 @@ public class PatternsManager : MonoBehaviour
 
             targets[i].AddComponent<PatternTarget>();
         }
-        StartGame();
+        //StartGame();
     }
 
     int findTile(string name){
@@ -54,28 +58,27 @@ public class PatternsManager : MonoBehaviour
     }
 
     void TileWasActivated(string name){
+        if(!isGameStarted) {
+            StartGame();
+            return;
+        }
         int index = findTile(name);
         if(!isPlayerTurn || playerIndex >= sequence.Length){
             return;
         }
         playerSequence[playerIndex] = index;
         if(index != sequence[playerIndex]){
-            Debug.Log("***Lost! Index: " + index + " Sequence: " + sequence[playerIndex]);
-            Debug.Log("***PlayerIndex: " + playerIndex);
             playerIndex = 0;
-            StartCoroutine(LoseRound());
-            return;
-        }
-        playerIndex++;
+            StartCoroutine(LoseRound());    
+            return; 
+        }   
+        playerIndex++;  
         if(playerIndex == sequence.Length){
-            Debug.Log("***Won! PlayerIndex: " + playerIndex + " Sequence Length: " + sequence.Length);
             playerIndex = 0;
             isPlayerTurn = false;
             StartCoroutine(WinRound());
             return;
         }
-        Debug.Log("***Valid Button");
-        
     }
 
     IEnumerator LoseRound(){
@@ -130,7 +133,11 @@ public class PatternsManager : MonoBehaviour
     }
     IEnumerator WinRound(){
         yield return FlashAllTiles(Color.white, Color.green, 3);
-        yield return StartRound();
+        if(round < RoundsToWin){
+            yield return StartRound();
+        } else {
+            WinGame();
+        }
     } 
 
     IEnumerator StartRound(){
@@ -182,10 +189,15 @@ public class PatternsManager : MonoBehaviour
         isRoundRunning = false;
         round = 0;
     }
+    void WinGame(){
+        EndGame();
+        StartCoroutine(door.RaiseDoor());
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        tileRenderers[frame].material.color =  colors[frame];
+        frame = (frame + 1) % tileRenderers.Length;
     }
 }

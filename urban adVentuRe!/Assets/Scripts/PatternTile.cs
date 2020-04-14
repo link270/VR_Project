@@ -6,6 +6,8 @@ using Valve.VR.InteractionSystem;
 public class PatternTile : MonoBehaviour
 {
     private HoverButton hoverButton;
+    public Color color;
+    private Renderer renderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,26 +15,10 @@ public class PatternTile : MonoBehaviour
         if(hoverButton){
             hoverButton.onButtonDown.AddListener(this.OnButtonDown);
         }
-
     }
 
     private void OnButtonDown(Hand hand){
-        Debug.Log("***Pressed " + gameObject.name);
         SendMessageUpwards("TileWasActivated", gameObject.name);
     }
 
-    void OnCollisionEnter(Collision other){
-        if(other.gameObject.tag == "Player"){
-            Debug.Log("Player entered");
-        }
-        SendMessageUpwards("TileWasActivated", gameObject.name);
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
