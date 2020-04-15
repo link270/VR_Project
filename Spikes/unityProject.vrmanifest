@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.vrtests.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "G:\\Unity projects\\VR_Project\\GearsOfVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "VR tests [Testing]"
+        }
+      }
+    }
+  ]
+}
