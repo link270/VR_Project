@@ -5,27 +5,31 @@ using UnityEngine;
 
 public class RetractIfStatuesRemoved : MonoBehaviour
 {
-    public GameObject statueOne;
-    public GameObject statueTwo;
-    public GameObject statueThree;
-    public GameObject statueFour;
+
     public GameObject ballDetector;
     public GameObject trapdoor;
-
+    public GameObject[] pedestals;
+    private List<ItemRemoved> removed;
     public GameObject Ball;
-
+    private DetectBall detectBall;
     private Vector3 initPos;
     private Vector3 curPos;
-
     private Vector3 endPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        pedestals = GameObject.FindGameObjectsWithTag("IndianaPedestals");
+        removed = new List<ItemRemoved>();
+        foreach(GameObject pedestal in pedestals){
+            removed.Add(pedestal.GetComponent<ItemRemoved>());
+        }
         initPos = new Vector3(trapdoor.transform.position.x,trapdoor.transform.position.y,trapdoor.transform.position.z);
         curPos = initPos;
         endPos = initPos;
         endPos.z += 5f;
+
+        detectBall = ballDetector.GetComponent<DetectBall>();
 
     }
 
@@ -33,27 +37,18 @@ public class RetractIfStatuesRemoved : MonoBehaviour
     void Update()
     {
 
-        var removed = new List<bool>(){
-            statueOne.GetComponent<ItemRemoved>().Removed,
-            statueTwo.GetComponent<ItemRemoved>().Removed,
-            statueThree.GetComponent<ItemRemoved>().Removed,
-            statueFour.GetComponent<ItemRemoved>().Removed
-        };
-
-
-        var ballDetected = ballDetector.GetComponent<DetectBall>().BallPresent;
-        if(removed.All(statue => statue == true)){
-            //Debug.Log(removed1);
+        bool allRemoved = removed.All(pedestal => pedestal.Removed == true);
+        
+        if(allRemoved){
             Retract();
-            //moved = true;
         }
 
-        if(ballDetected)
+        if(detectBall.BallPresent)
         {
             Close();
         }
 
-        if(removed.Where(statue => statue == true).ToList().Count == 1){
+        if(removed.Where(pedestal => pedestal.Removed == true).ToList().Count == 1){
             Ball.GetComponent<Rigidbody>().useGravity = true;
         }
         

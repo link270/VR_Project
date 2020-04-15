@@ -9,6 +9,9 @@ TagManager:
   - Statues
   - PatternTiles
   - PatternTargets
+  - IndianaStatues
+  - IndianaRestores
+  - IndianaPedestals
   layers:
   - Default
   - TransparentFX

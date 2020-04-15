@@ -7,7 +7,6 @@ public class PatternTile : MonoBehaviour
 {
     private HoverButton hoverButton;
     public Color color;
-    private Renderer renderer;
     // Start is called before the first frame update
     void Start()
     {

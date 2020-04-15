@@ -7,10 +7,14 @@ public class ItemRemoved : MonoBehaviour
     public bool Removed;
 
     void OnTriggerEnter(Collider colider){
-        this.Removed = false;
+        if(colider.tag == "IndianaStatues"){
+            this.Removed = false;
+        }
     }
 
     void OnTriggerExit(Collider colider){
-        this.Removed = true;
+        if(colider.tag == "IndianaStatues"){
+            this.Removed = true;
+        }
     }
 }

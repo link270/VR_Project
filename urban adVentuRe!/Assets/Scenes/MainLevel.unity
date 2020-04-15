@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 29a55fcb728964a4e9604af95bf71ad5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29a55fcb728964a4e9604af95bf71ad5,
         type: 3}
@@ -736,7 +736,7 @@ Transform:
   - {fileID: 1451943022}
   - {fileID: 303497429}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &58719462
 GameObject:
@@ -851,7 +851,7 @@ Transform:
   m_LocalScale: {x: 0.050450478, y: -7.234385, z: 1.5314758}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -181.239, z: 0}
 --- !u!65 &60933506
 BoxCollider:
@@ -1356,7 +1356,7 @@ PrefabInstance:
     - target: {fileID: 5854033015894534605, guid: 6c3c0bfa92038bd4aa725e80a43ced1e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5854033015894534605, guid: 6c3c0bfa92038bd4aa725e80a43ced1e,
         type: 3}
@@ -1595,6 +1595,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 75466390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &128310583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128310584}
+  m_Layer: 0
+  m_Name: Restore_1
+  m_TagString: IndianaRestores
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &128310584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128310583}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32668522, y: -4.01, z: -0.87879926}
+  m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
+  m_Children: []
+  m_Father: {fileID: 1783017494}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &162810826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,8 +1844,8 @@ GameObject:
   - component: {fileID: 270077343}
   - component: {fileID: 270077342}
   m_Layer: 0
-  m_Name: Statue (1)
-  m_TagString: Untagged
+  m_Name: Statue_2
+  m_TagString: IndianaStatues
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1827,12 +1857,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270077340}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02751492, y: -4.4879117, z: -0.8787991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027515072, y: -4.0199986, z: -0.8787991}
   m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 11
+  m_Father: {fileID: 1909258869}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &270077342
 MonoBehaviour:
@@ -2032,7 +2062,7 @@ GameObject:
   - component: {fileID: 292347382}
   m_Layer: 0
   m_Name: IndianaPedestal (3)
-  m_TagString: Untagged
+  m_TagString: IndianaPedestals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2044,11 +2074,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292347380}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32921392, y: -2.0673678, z: 0.88417596}
-  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32921407, y: -2.0673678, z: 0.8841758}
+  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408347}
   m_Children: []
-  m_Father: {fileID: 561297459}
+  m_Father: {fileID: 404809869}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &292347382
@@ -2308,7 +2338,7 @@ Transform:
   m_LocalScale: {x: 6.882261, y: 1, z: 14.397148}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -27.03, y: 0, z: 0}
 --- !u!1 &303497428
 GameObject:
@@ -3153,6 +3183,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 180
   isActive: 0
+--- !u!1 &404809868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404809869}
+  m_Layer: 0
+  m_Name: Pedastles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404809869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404809868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1480677180}
+  - {fileID: 1627258026}
+  - {fileID: 2028721215}
+  - {fileID: 292347381}
+  m_Father: {fileID: 561297459}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409045528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4231,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &518309803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518309804}
+  m_Layer: 0
+  m_Name: PlayerRestore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &518309804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518309803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.256, y: -3.417, z: 1.319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1783017494}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519369915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,21 +4482,16 @@ Transform:
   m_LocalPosition: {x: 525.2, y: 7.1099997, z: 894.89}
   m_LocalScale: {x: 6.32425, y: -0.46435863, z: 3.723232}
   m_Children:
-  - {fileID: 1172223664}
+  - {fileID: 404809869}
+  - {fileID: 1783017494}
+  - {fileID: 1909258869}
   - {fileID: 1723811750}
   - {fileID: 592532133}
-  - {fileID: 292347381}
   - {fileID: 2001436360}
-  - {fileID: 2028721215}
-  - {fileID: 1627258026}
   - {fileID: 923356396}
   - {fileID: 60933505}
   - {fileID: 708352279}
   - {fileID: 736901301}
-  - {fileID: 270077341}
-  - {fileID: 1224512527}
-  - {fileID: 1480677180}
-  - {fileID: 1818247968}
   - {fileID: 706492320}
   - {fileID: 364665558}
   - {fileID: 1600737425}
@@ -4410,7 +4499,7 @@ Transform:
   - {fileID: 605725337}
   - {fileID: 221302126}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!1 &571014222
 GameObject:
@@ -4493,7 +4582,7 @@ Transform:
   m_LocalScale: {x: 0.01353362, y: -0.18431874, z: 0.022988092}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!64 &592532134
 MeshCollider:
@@ -4674,7 +4763,7 @@ Transform:
   - {fileID: 840122925}
   - {fileID: 673589158}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!1 &599396887
 GameObject:
@@ -5759,7 +5848,7 @@ Transform:
   m_LocalScale: {x: 0.050440762, y: -7.234385, z: 1.5319759}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &708352280
 BoxCollider:
@@ -5905,7 +5994,7 @@ Transform:
   - {fileID: 519369917}
   - {fileID: 372193242}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 30.263, z: 0}
 --- !u!1 &716404181
 GameObject:
@@ -6037,7 +6126,7 @@ Transform:
   m_LocalScale: {x: 0.08565008, y: -7.234385, z: 0.9020844}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -271.24298, z: 0}
 --- !u!65 &736901302
 BoxCollider:
@@ -7233,7 +7322,7 @@ Transform:
   m_LocalScale: {x: 0.08565026, y: -7.234385, z: 0.9020828}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -91.239006, z: 0}
 --- !u!65 &923356397
 BoxCollider:
@@ -8433,6 +8522,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079127475}
   m_Mesh: {fileID: -5033257388254679794, guid: 6882209505f7ac94aac6979bad121b89, type: 3}
+--- !u!1 &1083318590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083318591}
+  m_Layer: 0
+  m_Name: Restore_2
+  m_TagString: IndianaRestores
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083318591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083318590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027515072, y: -4.02, z: -0.8787991}
+  m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
+  m_Children: []
+  m_Father: {fileID: 1783017494}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085303583
 GameObject:
   m_ObjectHideFlags: 0
@@ -8750,7 +8869,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c7ee025f9ba99004f9e11321abd897c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c7ee025f9ba99004f9e11321abd897c5,
         type: 3}
@@ -8940,8 +9059,8 @@ GameObject:
   - component: {fileID: 1172223666}
   - component: {fileID: 1172223665}
   m_Layer: 0
-  m_Name: Statue (3)
-  m_TagString: Untagged
+  m_Name: Statue_4
+  m_TagString: IndianaStatues
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8953,11 +9072,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172223663}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32668537, y: -4.4879117, z: 0.8782745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32668552, y: -4.02, z: 0.87827426}
   m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
   m_Children: []
-  m_Father: {fileID: 561297459}
+  m_Father: {fileID: 1909258869}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1172223665
@@ -9744,8 +9863,8 @@ GameObject:
   - component: {fileID: 1224512529}
   - component: {fileID: 1224512528}
   m_Layer: 0
-  m_Name: Statue (2)
-  m_TagString: Untagged
+  m_Name: Statue_3
+  m_TagString: IndianaStatues
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9757,12 +9876,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224512526}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02751492, y: -4.4879117, z: 0.8782745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027514765, y: -4.03, z: 0.8782745}
   m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 12
+  m_Father: {fileID: 1909258869}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1224512528
 MonoBehaviour:
@@ -10223,7 +10342,7 @@ Transform:
   - {fileID: 1987109598}
   - {fileID: 2078833895}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280023362
 GameObject:
@@ -11427,7 +11546,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 29a55fcb728964a4e9604af95bf71ad5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29a55fcb728964a4e9604af95bf71ad5,
         type: 3}
@@ -11553,6 +11672,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 109154, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -11619,15 +11742,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 520.58
+      value: 527.537
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.69
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 854.05
+      value: 887.615
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -11788,6 +11911,11 @@ PrefabInstance:
     - target: {fileID: 1000014277073068, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010547881750, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: canTurnEverySeconds
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -12275,7 +12403,7 @@ GameObject:
   - component: {fileID: 1480677181}
   m_Layer: 0
   m_Name: IndianaPedestal (2)
-  m_TagString: Untagged
+  m_TagString: IndianaPedestals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12287,12 +12415,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480677179}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.024976714, y: -2.0673678, z: 0.88417596}
-  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.024976557, y: -2.0673678, z: 0.88417596}
+  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408347}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 13
+  m_Father: {fileID: 404809869}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1480677181
 MeshCollider:
@@ -12585,6 +12713,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526267257}
   m_Mesh: {fileID: 8534696712582718944, guid: 9cebb419299791b40b427d19cd48ccfb, type: 3}
+--- !u!1 &1527750097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527750098}
+  m_Layer: 0
+  m_Name: Restore_3
+  m_TagString: IndianaRestores
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1527750098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527750097}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027514765, y: -4.0300007, z: 0.8782745}
+  m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
+  m_Children: []
+  m_Father: {fileID: 1783017494}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547694537
 GameObject:
   m_ObjectHideFlags: 0
@@ -12651,7 +12809,7 @@ Transform:
   - {fileID: 1597785884}
   - {fileID: 1526267258}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1561178268
 PrefabInstance:
@@ -12854,7 +13012,7 @@ Transform:
   - {fileID: 1992664264}
   - {fileID: 1478478455}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1569387570
 GameObject:
@@ -13456,7 +13614,7 @@ GameObject:
   - component: {fileID: 1627258027}
   m_Layer: 0
   m_Name: IndianaPedestal
-  m_TagString: Untagged
+  m_TagString: IndianaPedestals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13468,12 +13626,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627258025}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32921392, y: -2.0673678, z: -0.87289757}
-  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32921377, y: -2.0673678, z: -0.87289774}
+  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408347}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 6
+  m_Father: {fileID: 404809869}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1627258027
 MeshCollider:
@@ -14484,7 +14642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1723811751
 MonoBehaviour:
@@ -14498,12 +14656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff9b9f285077aa4a9b0ab3ca725f20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statueOne: {fileID: 1627258025}
-  statueTwo: {fileID: 2028721214}
-  statueThree: {fileID: 1480677179}
-  statueFour: {fileID: 292347380}
   ballDetector: {fileID: 2001436359}
   trapdoor: {fileID: 1723811749}
+  pedestals: []
   Ball: {fileID: 2004509629}
 --- !u!65 &1723811752
 BoxCollider:
@@ -40905,6 +41060,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cebb419299791b40b427d19cd48ccfb, type: 3}
+--- !u!1 &1767002315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767002316}
+  m_Layer: 0
+  m_Name: Restore_4
+  m_TagString: IndianaRestores
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767002316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767002315}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32668552, y: -4.0199986, z: 0.87827426}
+  m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
+  m_Children: []
+  m_Father: {fileID: 1783017494}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771418791
 GameObject:
   m_ObjectHideFlags: 0
@@ -41203,6 +41388,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778982861}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1781088552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781088553}
+  m_Layer: 0
+  m_Name: IndianaBallRestore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781088553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781088552}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000001490116}
+  m_LocalPosition: {x: 502.388, y: 36.06, z: 894.82}
+  m_LocalScale: {x: 3.489371, y: 3.4893713, z: 3.4893713}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1783017493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783017494}
+  - component: {fileID: 1783017495}
+  m_Layer: 0
+  m_Name: Restores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1783017494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783017493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1767002316}
+  - {fileID: 1527750098}
+  - {fileID: 128310584}
+  - {fileID: 1083318591}
+  - {fileID: 518309804}
+  m_Father: {fileID: 561297459}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1783017495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783017493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd83289be5d15b5458a02ffe75e2572a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1784928655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41248,7 +41511,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
@@ -41660,8 +41923,8 @@ GameObject:
   - component: {fileID: 1818247970}
   - component: {fileID: 1818247969}
   m_Layer: 0
-  m_Name: Statue
-  m_TagString: Untagged
+  m_Name: Statue_1
+  m_TagString: IndianaStatues
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41673,12 +41936,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818247967}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32668537, y: -4.4879117, z: -0.8787991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32668522, y: -4.010001, z: -0.87879926}
   m_LocalScale: {x: 0.051495433, y: -0.7013329, z: 0.087469704}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 14
+  m_Father: {fileID: 1909258869}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1818247969
 MonoBehaviour:
@@ -42164,7 +42427,7 @@ Transform:
   - {fileID: 1629318028}
   - {fileID: 339423128}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891429909
 GameObject:
@@ -42416,6 +42679,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904019128}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1909258868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909258869}
+  m_Layer: 0
+  m_Name: Statues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909258869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909258868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1172223664}
+  - {fileID: 1224512527}
+  - {fileID: 1818247968}
+  - {fileID: 270077341}
+  m_Father: {fileID: 561297459}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910425969
 GameObject:
   m_ObjectHideFlags: 0
@@ -43123,7 +43420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561297459}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2001436361
 MonoBehaviour:
@@ -43231,7 +43528,7 @@ Transform:
   m_LocalScale: {x: 3.489371, y: 3.4893713, z: 3.4893713}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2004509631
 Rigidbody:
@@ -43263,8 +43560,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapDoor: {fileID: 1723811749}
   ball: {fileID: 2004509629}
-  visibleDistance: 15
+  visibleDistance: 50
   angularVelocity: 15
+  restore: {fileID: 1783017493}
 --- !u!135 &2004509633
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -43479,7 +43777,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
@@ -43568,7 +43866,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68b62571b255c324d9dbef9bd8b52e74,
         type: 3}
@@ -43721,7 +44019,7 @@ GameObject:
   - component: {fileID: 2028721216}
   m_Layer: 0
   m_Name: IndianaPedestal (1)
-  m_TagString: Untagged
+  m_TagString: IndianaPedestals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43733,12 +44031,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028721214}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.024976714, y: -2.0673678, z: -0.87289757}
-  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.024976866, y: -2.0673678, z: -0.87289757}
+  m_LocalScale: {x: 0.12014864, y: -1.6363431, z: 0.20408347}
   m_Children: []
-  m_Father: {fileID: 561297459}
-  m_RootOrder: 5
+  m_Father: {fileID: 404809869}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2028721216
 MeshCollider:
