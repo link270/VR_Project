@@ -27,6 +27,11 @@ namespace Valve.VR.InteractionSystem
             //Fade player's vision to black
             SteamVR_Fade.Start(Color.black, 0.2f);
             //Move the player
+
+            foreach(var statue in statues){
+                 statue.GetComponent<SimpleAttach>().myHand.DetachObject(statue); // detaches hand              
+            }
+
             Vector3 translation = playerRestore.transform.position - player.transform.position;
             player.transform.Translate(translation.x, translation.y, translation.z, Space.World);
 
