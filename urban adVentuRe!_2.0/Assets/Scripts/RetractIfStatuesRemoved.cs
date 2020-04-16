@@ -10,6 +10,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     public GameObject ballDetector, trapdoor, Entrance, Wall;
     public GameObject[] pedestals;
+    public GameObject[] LockedTeleports;
     private List<ItemRemoved> removed;
     private Player player;
     public GameObject Ball;
@@ -78,6 +79,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         if(allRemoved){
             RetractTrapDoor();
             LowerWall();
+            UnlockTeleports();
         }
 
         if(detectBall.BallPresent)
@@ -90,6 +92,15 @@ public class RetractIfStatuesRemoved : MonoBehaviour
             Ball.GetComponent<Rigidbody>().useGravity = true;
         }
         
+    }
+
+    void UnlockTeleports()
+    {
+        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
+        foreach(var teleportArea in LockedTeleports)
+        {
+            teleportArea.GetComponent<TeleportArea>().SetLocked(false);
+        }
     }
 
     void RetractTrapDoor(){

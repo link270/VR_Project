@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 9edeb59cd5e1c534981c262f710760f5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Aircon1
+    100002: Aircon2
+    100004: Aircon3
+    100006: Door1
+    100008: Door2
+    100010: MainDoor
+    100012: Warehouse1
+    100014: //RootNode
+    400000: Aircon1
+    400002: Aircon2
+    400004: Aircon3
+    400006: Door1
+    400008: Door2
+    400010: MainDoor
+    400012: Warehouse1
+    400014: //RootNode
+    2100000: Warehouse1Aircon
+    2100002: Warehouse1Door1
+    2100004: Warehouse1Interior
+    2100006: Warehouse1WallFront1
+    2100008: Warehouse1RoofStruts1
+    2100010: Warehouse1Roof1
+    2100012: Warehouse1WallSides1
+    2100014: Warehouse1WallsTop1
+    2100016: Warehouse1Detail1
+    2100018: Warehouse1MainDoor1
+    2300000: Aircon1
+    2300002: Aircon2
+    2300004: Aircon3
+    2300006: Door1
+    2300008: Door2
+    2300010: MainDoor
+    2300012: Warehouse1
+    3300000: Aircon1
+    3300002: Aircon2
+    3300004: Aircon3
+    3300006: Door1
+    3300008: Door2
+    3300010: MainDoor
+    3300012: Warehouse1
+    4300000: Aircon2
+    4300002: Aircon3
+    4300004: Door2
+    4300006: Door1
+    4300008: Warehouse1
+    4300010: MainDoor
+    4300012: Aircon1
+    6400000: Aircon1
+    6400002: Aircon2
+    6400004: Aircon3
+    6400006: Door1
+    6400008: Door2
+    6400010: MainDoor
+    6400012: Warehouse1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1Aircon
+    second: {fileID: 2100000, guid: 390476172fd18bf4d9c407c785cb76b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1Detail1
+    second: {fileID: 2100000, guid: aeabe91dce30287448cb4eed9abb85bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1Door1
+    second: {fileID: 2100000, guid: 3722fbefa95346348b924e5acba92610, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1Interior
+    second: {fileID: 2100000, guid: d7167a7825bec2149ba1ab2c77dbc6f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1MainDoor1
+    second: {fileID: 2100000, guid: dae29b16c707dd948b8920bca1344aee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1Roof1
+    second: {fileID: 2100000, guid: 062dc621ff247444c9de0f9c1d4ad653, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1RoofStruts1
+    second: {fileID: 2100000, guid: 74f8f3090bf830b4d8148adb759cef52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1WallFront1
+    second: {fileID: 2100000, guid: 3ee09514bd8716644891cb5a7f96e5da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1WallSides1
+    second: {fileID: 2100000, guid: 163ff8fa28d0d7d4d9a31fcfe1d2c5d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warehouse1WallsTop1
+    second: {fileID: 2100000, guid: ddada033f6cc8924c9388455d51c8d04, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
