@@ -25,11 +25,11 @@ namespace Valve.VR.InteractionSystem
 
         public IEnumerator ResetIndiana(){
             //Fade player's vision to black
-            SteamVR_Fade.Start(Color.black, 0.2f);
+            SteamVR_Fade.Start(Color.red, 0.2f);
             //Move the player
 
-            foreach(var statue in statues){
-                 statue.GetComponent<SimpleAttach>().myHand.DetachObject(statue); // detaches hand              
+            foreach(GameObject statue in statues){
+                statue.GetComponent<SimpleAttach>().DetachSelfFromHand();
             }
 
             Vector3 translation = playerRestore.transform.position - player.transform.position;
@@ -37,8 +37,12 @@ namespace Valve.VR.InteractionSystem
 
 
             //Reset the statues
+            Rigidbody rigidbody;
             for (int i = 0; i < restores.Length; ++i){
+                rigidbody = statues[i].GetComponent<Rigidbody>();
                 statues[i].transform.position = restores[i].transform.position;
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;
             }
 
             //Reset the ball
@@ -53,6 +57,7 @@ namespace Valve.VR.InteractionSystem
             SteamVR_Fade.Start(Color.clear, 0.2f);
             yield return new WaitForSeconds(0.2f);
             
+            yield return new WaitForSeconds(1);
             //Reset the ball again just in case
             ballRigidbody.useGravity = false;
             ballRigidbody.velocity = Vector3.zero;

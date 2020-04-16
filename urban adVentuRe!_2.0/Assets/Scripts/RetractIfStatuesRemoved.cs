@@ -69,7 +69,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
         bool allRemoved = removed.All(pedestal => pedestal.Removed == true);
         
-        Debug.Log(Vector3.Distance(player.transform.position, TrapDoorPos));
+//        Debug.Log(Vector3.Distance(player.transform.position, TrapDoorPos));
 
         if(Vector3.Distance(player.transform.position, TrapDoorPos) < 8){
             CloseEntrance();
