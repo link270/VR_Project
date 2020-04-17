@@ -34,7 +34,7 @@ public class PatternsManager : MonoBehaviour
         for (int i = 0; i < tiles.Length; ++i){
             tileRenderers[i] = tiles[i].GetComponent<Renderer>();
             tileRenderers[i].material.color = colors[i];
-            //Debug.Log("Name: " + tiles[i].name + ", index: " + i);
+            Debug.Log("Name: " + tiles[i].name + ", index: " + i);
 
             tiles[i].AddComponent<PatternTile>();
         }

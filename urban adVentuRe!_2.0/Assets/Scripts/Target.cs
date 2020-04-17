@@ -11,7 +11,7 @@ public class Target : MonoBehaviour, IDamageable
     public void Start()
     {
         impactSound = GetComponent<AudioSource>();
-        currentScore = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<BowScore>();
+        currentScore = scoreKeeper.GetComponent<BowScore>();
         hasBeenHit = false;
     }
 
