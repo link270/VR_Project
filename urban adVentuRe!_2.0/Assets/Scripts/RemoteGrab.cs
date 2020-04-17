@@ -5,66 +5,82 @@ using Valve.VR;
 
 public class RemoteGrab : MonoBehaviour
 {
-    private SteamVR_LaserPointer pointer;
+    private SteamVR_LaserPointer laserPointer;
+
     private Hand hand;
+    private GameObject attachedObj;
+    private bool isAttached;
 
+    //public Hand.AttachmentFlags attachmentFlags = Hand.AttachmentFlags.ParentToHand | Hand.AttachmentFlags.DetachFromOtherHand | Hand.AttachmentFlags.TurnOnKinematic;
+    public Transform pointer;
+    public LayerMask Grabable;
     public float maxGrabbingDistance = 15f;
+    private BlankScript blankScript;
 
-    void Awake()
+    void Start()
     {
         hand = GetComponent<Hand>();
-        pointer = GetComponent<SteamVR_LaserPointer>();
-        pointer.PointerIn += PointerInside;
-        pointer.PointerOut += PointerOutside;
-        pointer.PointerClick += PointerClick;
+        isAttached = false;
+        attachedObj = null;
+        laserPointer = GetComponent<SteamVR_LaserPointer>();
+        laserPointer.PointerIn += PointerInside;
+        laserPointer.PointerOut += PointerOutside;
     }
 
-    public void PointerClick(object sender, PointerEventArgs e)
+    public void Update()
     {
-        float distance = (e.target.gameObject.GetComponent<Transform>().position - gameObject.transform.position).magnitude;
-        if (e.target.gameObject.GetComponent<SimpleAttach>() != null && distance <= maxGrabbingDistance)
+        RaycastHit hit;
+        if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, Grabable) && hand.currentAttachedObject == null)
         {
-            Grab(e.target.gameObject);
+            Grab(hit);
+        } else if (blankScript != null)
+        {
+            blankScript.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (isAttached)
+        {
+            hand.AttachObject(attachedObj, GrabTypes.Pinch, attachmentOffset: attachedObj.GetComponent<Throwable>().attachmentOffset);
+            attachedObj = null;
+            isAttached = false;
         }
     }
 
     public void PointerInside(object sender, PointerEventArgs e)
     {
-        
-        if (e.target.gameObject.GetComponent<SimpleAttach>() != null)
+        if (e.target.gameObject.layer == 11)
         {
             hand.ShowGrabHint("Grab " + e.target.gameObject.name);
-            //var t = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
-            //t.GetStateDown( SteamVR_Input_Source.GetSource( hand);
-            //Debug.Log("State? " + t);
         }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
     {
-        if (e.target.gameObject.GetComponent<SimpleAttach>() != null)
+        if (e.target.gameObject.layer == 11)
         {
             hand.HideGrabHint();
         }
     }
 
-    public void Grab(GameObject obj)
+    public void Grab(RaycastHit hit)
     {
-        Interactable interactable = obj.GetComponent<Interactable>();
-        GrabTypes grabType = hand.GetGrabStarting();
-        bool isGrabing = hand.IsGrabEnding(obj);
-        //Debug.Log("Grabbing: " + isGrabing + " Type: " + grabType + " obj: " + obj.name+" Att: "+interactable.attachedToHand);
-        //hand.AttachObject(obj, grabType);
+        Interactable interactable = hit.collider.gameObject.GetComponent<Interactable>();
+        SteamVR_Input_Sources inputSource = hand.handType;
+        if (hand.grabPinchAction[inputSource].state == true)
+        {
+            if (interactable != null)
+            {
+                interactable.transform.LookAt(transform);
+                interactable.gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500, ForceMode.Force);
+                attachedObj = interactable.gameObject;
+                isAttached = true;
+            }
+        }
 
-        if (interactable.attachedToHand == null)
-        {
-            hand.AttachObject(obj, grabType);
-            hand.HoverLock(interactable);
-        }
-        else if (isGrabing)
-        {
-            hand.DetachObject(obj);
-            hand.HoverUnlock(interactable);
-        }
+        blankScript = hit.collider.gameObject.GetComponentInChildren<BlankScript>();
+        blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 }

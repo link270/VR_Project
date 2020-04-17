@@ -32,7 +32,7 @@ public class Spikes : MonoBehaviour
     {
         var distance = Vector3.Distance(spikes.transform.position, player.transform.position);
 
-//        Debug.Log(distance);
+        //Debug.Log(distance);
 
         if(distance < sensitivity){
             Activate();
