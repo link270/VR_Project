@@ -16,12 +16,13 @@ public class RotateStatueCW : RotateStatue
         float rotationProgress = 0;
         float perLoop = 3.0f;
 
+        Orientation statueOrientation = statue.GetComponent<Orientation>();
         while (rotationProgress < totalRotation)
         {
             statue.transform.Rotate(0.0f, perLoop, 0.0f, Space.Self);
             rotationProgress += perLoop;
-            statue.GetComponent<Orientation>().orientation += perLoop;
-            if(statue.GetComponent<Orientation>().orientation == 360) statue.GetComponent<Orientation>().orientation = 0;
+            statueOrientation.orientation += perLoop;
+            if(statueOrientation.orientation == 360) statueOrientation.orientation = 0;
             yield return null;
         }
 
