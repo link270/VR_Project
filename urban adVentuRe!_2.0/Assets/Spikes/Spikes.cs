@@ -11,7 +11,12 @@ public class Spikes : MonoBehaviour
     public GameObject spikes;
     private Vector3 endPos;
 
-    private Player player;  
+    private Player player;
+    public float sensitivity;
+
+    public float spikesTravelDistance;
+
+    public float activationSpeed;  
 
     void Start()
     {
@@ -19,7 +24,7 @@ public class Spikes : MonoBehaviour
         initPos = new Vector3(spikes.transform.position.x, spikes.transform.position.y, spikes.transform.position.z);
         curPos = initPos;
         endPos = initPos;
-        endPos.y += .5f;
+        endPos.y += spikesTravelDistance;
     }
 
     // Update is called once per frame
@@ -27,13 +32,13 @@ public class Spikes : MonoBehaviour
     {
         var distance = Vector3.Distance(spikes.transform.position, player.transform.position);
 
-//        Debug.Log(distance);
+        Debug.Log(distance);
 
-        if(distance < 1.5){
+        if(distance < sensitivity){
             Activate();
         }
 
-        if(distance > 1.5){
+        if(distance > sensitivity){
             Retract();
         }
     }
@@ -48,7 +53,7 @@ public class Spikes : MonoBehaviour
 
     private IEnumerator ActivateSpikes(Vector3 newPos){
         float startTime = Time.time;
-        float overTime = 2f;
+        float overTime = activationSpeed;
         float endTime = startTime + overTime;
 
         while (Time.time < endTime)
