@@ -22,16 +22,33 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     private Vector3 TrapDoorPos;
 
+    private AudioSource warning, ballRollingSound, entranceSliding, solved;
+    private bool warningPlayed;
+    private bool entranceClosed;
+
+
+    private bool ballRolling;
+
+    private bool puzzleSolved;
+
     // Start is called before the first frame update
     void Start()
     {
         player = Player.instance;
-
+        ballRolling = false;
+        puzzleSolved = false;
         pedestals = GameObject.FindGameObjectsWithTag("IndianaPedestals");
+
+        var sound = GameObject.FindGameObjectWithTag("IndianaSolved");
+        solved = sound.GetComponent<AudioSource>();
         removed = new List<ItemRemoved>();
         foreach(GameObject pedestal in pedestals){
             removed.Add(pedestal.GetComponent<ItemRemoved>());
         }
+        entranceClosed = false;
+        warning = GetComponent<AudioSource>();
+        ballRollingSound = Ball.GetComponent<AudioSource>();
+        entranceSliding = Entrance.GetComponent<AudioSource>();
 
         InitTrap();
         InitEntrance();
@@ -40,6 +57,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         TrapDoorPos = trapdoor.transform.position;
 
         detectBall = ballDetector.GetComponent<DetectBall>();
+        warningPlayed = false;
     }
 
     void InitTrap(){
@@ -71,12 +89,16 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         
 //        Debug.Log(Vector3.Distance(player.transform.position, TrapDoorPos));
 
-        if(Vector3.Distance(player.transform.position, TrapDoorPos) < 8){
+        if(!entranceClosed && Vector3.Distance(player.transform.position, TrapDoorPos) < 8){
+            entranceSliding.Play();
+            entranceClosed = true;
             CloseEntrance();
         }
 
 
-        if(allRemoved){
+        if(!puzzleSolved && allRemoved){
+            puzzleSolved = true;
+            solved.Play();
             RetractTrapDoor();
             LowerWall();
             UnlockTeleports();
@@ -84,12 +106,24 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
         if(detectBall.BallPresent)
         {
+            ballRollingSound.Stop();
             CloseTrap();
             Destroy(Ball);
         }
 
-        if(removed.Where(pedestal => pedestal.Removed == true).ToList().Count == 1){
-            Ball.GetComponent<Rigidbody>().useGravity = true;
+        if(!ballRolling && removed.Where(pedestal => pedestal.Removed == true).ToList().Count >= 1){
+            
+            if(!warning.isPlaying && warningPlayed == false){
+                warning.Play();
+                warningPlayed = true;
+            }
+
+            if(!warning.isPlaying){
+                ballRolling = true;
+                ballRollingSound.Play();
+                Debug.Log("Activating stuff");
+                Ball.GetComponent<Rigidbody>().useGravity = true;
+            }
         }
         
     }

@@ -12,6 +12,9 @@ public class GearsMoveWall : MonoBehaviour
 
     private Vector3 endPos;
 
+    private AudioSource solvedSound;
+    private bool isSolved;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +22,17 @@ public class GearsMoveWall : MonoBehaviour
         curPos = initPos;
         endPos = initPos;
         endPos.y -= 5f;
+        isSolved =false;
 
+        solvedSound = Door.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GearPosts.All(Post =>  Post.GetComponent<GearPostInteraction1>().CorrectGearPresent)){
+        if(!isSolved && GearPosts.All(Post =>  Post.GetComponent<GearPostInteraction1>().CorrectGearPresent)){
+            solvedSound.Play();
+            isSolved = true;
            Retract();
         }
     }

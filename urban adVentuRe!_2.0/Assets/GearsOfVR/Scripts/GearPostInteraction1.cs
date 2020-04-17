@@ -24,6 +24,8 @@ public class GearPostInteraction1 : MonoBehaviour
 
     public float Scale;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
