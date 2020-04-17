@@ -9,10 +9,11 @@ public class StatuePuzzleResult : MonoBehaviour
     private List<Orientation> orientations;
     public GameObject wall;
 
-    private Vector3 initPos;
-    private Vector3 curPos;
-
-    private Vector3 endPos;
+    private float initPos;
+    private float curPos;
+    private float endPos;
+    private bool isOpen;
+    private bool isClosed;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,12 @@ public class StatuePuzzleResult : MonoBehaviour
         foreach(GameObject statue in statues){
             orientations.Add(statue.GetComponent<Orientation>());
         }
-        initPos = new Vector3(wall.transform.position.x,wall.transform.position.y,wall.transform.position.z);
+        initPos = 0f;
         curPos = initPos;
-        endPos = initPos;
-        endPos.y += 2f;
+        endPos = initPos + 90f;
 
+        isClosed = false;
+        isOpen = false;
     }
 
     // Update is called once per frame
@@ -37,29 +39,72 @@ public class StatuePuzzleResult : MonoBehaviour
             shouldUpdate = statue.isActive && shouldUpdate;
         }
 
-        if(shouldUpdate){
-            //Debug.Log(removed1);
+
+        if(shouldUpdate && !isOpen){
+            Debug.Log("Hi");
+            isOpen = true;
+            isClosed = false;
             Retract();
             //moved = true;
-        } else Close();
+        } else if (!shouldUpdate && !isClosed){
+            Debug.Log("Ho");
+            isClosed = true;
+            isOpen = false;
+            Close();
+        } 
     }
 
     void Retract(){
-        StartCoroutine(MoveWall(endPos)); 
+        StartCoroutine(OpenDoor()); 
     }
 
     void Close(){
-        StartCoroutine(MoveWall(initPos));
+        StartCoroutine(CloseDoor());
     }
 
-    private IEnumerator MoveWall(Vector3 newPos){
+    private IEnumerator OpenDoor(){
         float startTime = Time.time;
-        float overTime = 0.2f;
-        float endTime = startTime + overTime;
+        float duration = 1f;
+        float endTime = startTime + duration;
 
+        float angle = -1*(120 - curPos);
+
+        while (Time.time < endTime){
+            wall.transform.RotateAround(gameObject.transform.position, Vector3.up, angle * Time.deltaTime);
+            curPos += angle * Time.deltaTime;
+            yield return null;
+        }
+
+    }
+
+    private IEnumerator CloseDoor(){
+        float startTime = Time.time;
+        float duration = 1f;
+        float endTime = startTime + duration;
+
+        float angle = (0-curPos);
+
+        while (Time.time < endTime){
+            wall.transform.RotateAround(gameObject.transform.position, Vector3.up, angle * Time.deltaTime);
+            curPos += angle * Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator MoveWall(float newPos){
+        float startTime = Time.time;
+        float duration = 2f;
+        float endTime = startTime + duration;
+
+        float angle;
+        
         while (Time.time < endTime)
         {
-            wall.transform.position = Vector3.Slerp(curPos, newPos, (Time.time - startTime) / overTime);
+            
+            angle = (curPos - newPos) * (Time.time - startTime) / duration;
+
+            wall.transform.RotateAround(gameObject.transform.position, Vector3.up, angle);
+            curPos += angle;
             yield return null;
         }
 
