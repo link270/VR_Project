@@ -4,14 +4,13 @@ public class Target : MonoBehaviour, IDamageable
 {
     private AudioSource impactSound;
 
-    public GameObject scoreKeeper;
-    private BowScore currentScore;
+    private BowScore scoreKeeper;
     private bool hasBeenHit;
 
     public void Start()
     {
         impactSound = GetComponent<AudioSource>();
-        currentScore = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<BowScore>();
+        scoreKeeper = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<BowScore>();
         hasBeenHit = false;
     }
 
@@ -27,6 +26,6 @@ public class Target : MonoBehaviour, IDamageable
         meshRenderer.material.color = Color.black;
         Debug.Log("Target hit");
         impactSound.Play();
-        currentScore.incrementScore();
+        scoreKeeper.incrementScore();
     }
 }

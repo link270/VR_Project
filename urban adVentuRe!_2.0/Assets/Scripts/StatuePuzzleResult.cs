@@ -41,13 +41,13 @@ public class StatuePuzzleResult : MonoBehaviour
 
 
         if(shouldUpdate && !isOpen){
-            Debug.Log("Hi");
+            //Debug.Log("Hi");
             isOpen = true;
             isClosed = false;
             Retract();
             //moved = true;
         } else if (!shouldUpdate && !isClosed){
-            Debug.Log("Ho");
+            //Debug.Log("Ho");
             isClosed = true;
             isOpen = false;
             Close();

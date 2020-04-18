@@ -15,6 +15,7 @@ TagManager:
   - FxTemporaire
   - Indiana_Locked_Teleportarea
   - IndianaSolved
+  - ScoreKeeper
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Player
   - City
   - PuzzleObjects
-  - 
+  - Grabable
   - 
   - 
   - 

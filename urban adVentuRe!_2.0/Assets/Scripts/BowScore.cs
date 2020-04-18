@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BowScore : MonoBehaviour
 {
     private int currentScore;
     private bool hasWon;
+    private AudioSource WinSound;
 
     public int targetScore = 3;
 
@@ -14,16 +13,7 @@ public class BowScore : MonoBehaviour
     {
         currentScore = 0;
         hasWon = false;
-    }
-
-    // Update is called once per frame
-    private void FixedUpdate()
-    {
-        if (CheckForWin() && !hasWon)
-        {
-            Debug.Log("You hit enought targets and win.");
-            hasWon = true;
-        }
+        WinSound = GetComponent<AudioSource>();
     }
 
     private bool CheckForWin()
@@ -34,6 +24,12 @@ public class BowScore : MonoBehaviour
 
     public void incrementScore()
     {
-            currentScore++;
+        currentScore++;
+        if (CheckForWin() && !hasWon)
+        {
+            Debug.Log("You hit enought targets and win.");
+            hasWon = true;
+            WinSound.Play();
+        }
     }
 }
