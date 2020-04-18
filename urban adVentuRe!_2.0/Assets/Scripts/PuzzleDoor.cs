@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class PuzzleDoor : MonoBehaviour
 {
-    private Vector3 initPos;
-    private Vector3 curPos;
-    private Vector3 endPos;
+    private float initPos;
+    private float curPos;
+    private float endPos;
+    public GameObject door;
 
     // Start is called before the first frame update
     void Start()
     {
-        initPos = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.z);
+        initPos = 0;
         curPos = initPos;
         endPos = initPos;
-        endPos.y += 2f;
+        endPos += 2f;
     }
-
     public IEnumerator RaiseDoor(){
         float startTime = Time.time;
-        float overTime = 0.2f;
-        float endTime = startTime + overTime;
+        float duration = 1f;
+        float endTime = startTime + duration;
 
-        while (Time.time < endTime)
-        {
-            gameObject.transform.position = Vector3.Slerp(curPos, endPos, (Time.time - startTime) / overTime);
+        float angle = -1*(90 - curPos);
+
+        while (Time.time < endTime){
+            door.transform.RotateAround(gameObject.transform.position, Vector3.up, angle * Time.deltaTime);
+            curPos += angle * Time.deltaTime;
             yield return null;
         }
 
-        curPos = endPos;
     }
 
     // Update is called once per frame
