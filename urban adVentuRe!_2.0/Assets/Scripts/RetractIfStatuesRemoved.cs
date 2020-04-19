@@ -16,9 +16,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
     public GameObject Ball;
     private DetectBall detectBall;
     private Vector3 TrapInitPos, TrapCurPos, TrapEndPos;
-    private Vector3 EntranceInitPos, EntranceCurPos, EntranceEndPos;
     private Vector3 WallInitPos, WallCurPos,  WallEndPos;
-    private Vector3 ExitInitPos, ExitCurPos, ExitEndPos;
 
     private Vector3 TrapDoorPos;
 
@@ -45,13 +43,13 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         foreach(GameObject pedestal in pedestals){
             removed.Add(pedestal.GetComponent<ItemRemoved>());
         }
+
         entranceClosed = false;
         warning = GetComponent<AudioSource>();
         ballRollingSound = Ball.GetComponent<AudioSource>();
         entranceSliding = Entrance.GetComponent<AudioSource>();
 
         InitTrap();
-        InitEntrance();
         InitWall();
 
         TrapDoorPos = trapdoor.transform.position;
@@ -65,13 +63,6 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         TrapCurPos = TrapInitPos;
         TrapEndPos = TrapInitPos;
         TrapEndPos.z += 5f;
-    }
-
-    void InitEntrance(){
-        EntranceInitPos = new Vector3(Entrance.transform.position.x,Entrance.transform.position.y,Entrance.transform.position.z);
-        EntranceCurPos = EntranceInitPos;
-        EntranceEndPos = EntranceInitPos;
-        EntranceEndPos.x -= 1.88f;
     }
 
     void InitWall(){
@@ -130,7 +121,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     void UnlockTeleports()
     {
-        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
+        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Telportarea");
         foreach(var teleportArea in LockedTeleports)
         {
             teleportArea.GetComponent<TeleportArea>().SetLocked(false);
@@ -146,7 +137,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
     }
 
     void CloseEntrance(){
-        StartCoroutine(MoveEntrance(EntranceEndPos)); 
+        StartCoroutine(MoveEntrance()); 
     }
 
 
@@ -169,18 +160,21 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
         TrapCurPos = newPos;
     }
-    private IEnumerator MoveEntrance(Vector3 newPos){
+    private IEnumerator MoveEntrance(){
         float startTime = Time.time;
         float overTime = 2f;
         float endTime = startTime + overTime;
+        var curPos = Entrance.transform.position;
+        var newPos = curPos;
+        newPos.x -= 4f;
 
         while (Time.time < endTime)
         {
-            Entrance.transform.position = Vector3.Slerp(EntranceCurPos, newPos, (Time.time - startTime) / overTime);
+            Entrance.transform.position = Vector3.Slerp(curPos, newPos, (Time.time - startTime) / overTime);
             yield return null;
         }
 
-        EntranceCurPos = newPos;
+        curPos = newPos;
     }
 
     private IEnumerator MoveWall(Vector3 newPos){

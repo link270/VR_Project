@@ -16,6 +16,10 @@ TagManager:
   - Indiana_Locked_Teleportarea
   - IndianaSolved
   - ScoreKeeper
+  - FenceTargets
+  - DoorTargets
+  - WallTargets
+  - Bow
   layers:
   - Default
   - TransparentFX
@@ -29,7 +33,7 @@ TagManager:
   - City
   - PuzzleObjects
   - Grabable
-  - 
+  - Bow
   - 
   - 
   - 

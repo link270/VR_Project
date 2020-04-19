@@ -24,8 +24,6 @@ public class buttonMoveWall : MonoBehaviour
         Debug.Log("Wallhere");
 
         Vector3 newPos = curPos;
-        // System.Threading.Thread.Sleep(500);
-        // t+=1;
         newPos.y += 1.0f;
         StartCoroutine(MoveWall(newPos));
     }

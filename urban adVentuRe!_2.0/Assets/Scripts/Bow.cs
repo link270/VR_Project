@@ -85,7 +85,7 @@ public class Bow : MonoBehaviour
         {
             return;
         }
-
+        
         pullingHand = hand;
     }
 

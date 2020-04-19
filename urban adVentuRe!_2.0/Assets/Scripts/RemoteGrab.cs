@@ -14,6 +14,7 @@ public class RemoteGrab : MonoBehaviour
     //public Hand.AttachmentFlags attachmentFlags = Hand.AttachmentFlags.ParentToHand | Hand.AttachmentFlags.DetachFromOtherHand | Hand.AttachmentFlags.TurnOnKinematic;
     public Transform pointer;
     public LayerMask Grabable;
+    public LayerMask BowGrabable;
     public float maxGrabbingDistance = 15f;
     private BlankScript blankScript;
 
@@ -33,9 +34,15 @@ public class RemoteGrab : MonoBehaviour
         if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, Grabable) && hand.currentAttachedObject == null)
         {
             Grab(hit);
-        } else if (blankScript != null)
+        } 
+        else if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, BowGrabable) && hand.currentAttachedObject == null)
+        {
+            GrabBow(GameObject.FindGameObjectWithTag("Bow"));
+        }
+        else if (blankScript != null)
         {
             blankScript.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            laserPointer.thickness = 0.0f;
         }
     }
 
@@ -82,5 +89,28 @@ public class RemoteGrab : MonoBehaviour
 
         blankScript = hit.collider.gameObject.GetComponentInChildren<BlankScript>();
         blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        laserPointer.thickness = 0.001f;
+    }
+
+    public void GrabBow(GameObject obj)
+    {
+        Debug.LogError("Object: " + obj.name);
+
+        Interactable interactable = obj.GetComponent<Interactable>();
+        SteamVR_Input_Sources inputSource = hand.handType;
+        if (hand.grabPinchAction[inputSource].state == true)
+        {
+            if (interactable != null)
+            {
+                interactable.transform.LookAt(transform);
+                interactable.gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500, ForceMode.Force);
+                attachedObj = interactable.gameObject;
+                isAttached = true;
+            }
+        }
+
+        blankScript = obj.GetComponentInChildren<BlankScript>();
+        blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        laserPointer.thickness = 0.001f;
     }
 }
