@@ -19,7 +19,6 @@ public class Rolling_Ball : MonoBehaviour
         ball.GetComponent<Rigidbody>().maxAngularVelocity = angularVelocity;
         ballMesh = ball.GetComponent<MeshRenderer>();
         ballMesh.enabled = false;
-        
     }
     void OnCollisionEnter(Collision collider){
         Debug.Log(collider.gameObject.name + ", " + collider.gameObject.tag);

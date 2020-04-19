@@ -44,6 +44,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
             removed.Add(pedestal.GetComponent<ItemRemoved>());
         }
 
+        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
         entranceClosed = false;
         warning = GetComponent<AudioSource>();
         ballRollingSound = Ball.GetComponent<AudioSource>();
@@ -99,7 +100,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
         {
             ballRollingSound.Stop();
             CloseTrap();
-            Destroy(Ball);
+            Destroy(Ball, ballRollingSound.clip.length);
         }
 
         if(!ballRolling && removed.Where(pedestal => pedestal.Removed == true).ToList().Count >= 1){
@@ -111,7 +112,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
             if(!warning.isPlaying){
                 ballRolling = true;
-                ballRollingSound.Play();
+                //ballRollingSound.Play();
                 Debug.Log("Activating stuff");
                 Ball.GetComponent<Rigidbody>().useGravity = true;
             }
@@ -121,7 +122,6 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     void UnlockTeleports()
     {
-        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
         foreach(var teleportArea in LockedTeleports)
         {
             teleportArea.GetComponent<TeleportArea>().SetLocked(false);
