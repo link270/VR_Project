@@ -88,15 +88,14 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
 
         if(!puzzleSolved && allRemoved){
-            puzzleSolved = true;
-            solved.Play();
-            RetractTrapDoor();
-            LowerWall();
-            UnlockTeleports();
+            SolvePuzzle();
         }
 
-        if(detectBall.BallPresent)
+        if(Ball != null && (detectBall.BallPresent || Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40))
         {
+            if(Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40){
+                SolvePuzzle();
+            }
             ballRollingSound.Stop();
             CloseTrap();
             Destroy(Ball);
@@ -118,6 +117,14 @@ public class RetractIfStatuesRemoved : MonoBehaviour
             }
         }
         
+    }
+
+    void SolvePuzzle(){
+            puzzleSolved = true;
+            solved.Play();
+            RetractTrapDoor();
+            LowerWall();
+            UnlockTeleports();
     }
 
     void UnlockTeleports()
