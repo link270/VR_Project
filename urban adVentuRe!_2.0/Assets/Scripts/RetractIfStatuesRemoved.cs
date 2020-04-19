@@ -100,6 +100,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
             ballRollingSound.Stop();
             CloseTrap();
             Destroy(Ball);
+            detectBall.BallPresent = false;
         }
 
         if(!ballRolling && removed.Where(pedestal => pedestal.Removed == true).ToList().Count >= 1){
