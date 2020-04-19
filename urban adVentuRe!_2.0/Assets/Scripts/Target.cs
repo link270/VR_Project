@@ -21,19 +21,19 @@ public class Target : MonoBehaviour, IDamageable
         {
             hasBeenHit = true;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            scoreKeeper.incrementScore(gameObject.tag);
             hitSound.Play();
             //StartCoroutine(PlayHitSound());
             //gameObject.SetActive(false);
-            scoreKeeper.incrementScore(gameObject.tag);
             Destroy(gameObject, hitSound.clip.length);
         }
     }
 
-    //private IEnumerator PlayHitSound()
-    //{
-    //    hitSound.Play();
-    //    yield return new WaitWhile(() => hitSound.isPlaying);
-    //}
+    private IEnumerator PlayHitSound()
+    {
+        hitSound.Play();
+        yield return new WaitWhile(() => hitSound.isPlaying);
+    }
 
     public IEnumerator MoveTargets()
     {

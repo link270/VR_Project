@@ -10,13 +10,16 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     public GameObject ballDetector, trapdoor, Entrance, Wall;
     public GameObject[] pedestals;
-    public GameObject[] LockedTeleports;
+    //public GameObject[] LockedTeleports;
     private List<ItemRemoved> removed;
     private Player player;
     public GameObject Ball;
     private DetectBall detectBall;
     private Vector3 TrapInitPos, TrapCurPos, TrapEndPos;
     private Vector3 WallInitPos, WallCurPos,  WallEndPos;
+    public TeleportArea lockedTeleport1;
+    public TeleportArea lockedTeleport2;
+    public TeleportArea lockedTeleport3;
 
     private Vector3 TrapDoorPos;
 
@@ -44,7 +47,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
             removed.Add(pedestal.GetComponent<ItemRemoved>());
         }
 
-        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
+        //LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
         entranceClosed = false;
         warning = GetComponent<AudioSource>();
         ballRollingSound = Ball.GetComponent<AudioSource>();
@@ -112,7 +115,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
             if(!warning.isPlaying){
                 ballRolling = true;
-                //ballRollingSound.Play();
+                ballRollingSound.Play();
                 Debug.Log("Activating stuff");
                 Ball.GetComponent<Rigidbody>().useGravity = true;
             }
@@ -130,10 +133,13 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     void UnlockTeleports()
     {
-        foreach(var teleportArea in LockedTeleports)
-        {
-            teleportArea.GetComponent<TeleportArea>().SetLocked(false);
-        }
+        lockedTeleport1.SetLocked(false);
+        lockedTeleport2.SetLocked(false);
+        lockedTeleport3.SetLocked(false);
+        //foreach(var teleportArea in LockedTeleports)
+        //{
+        //    teleportArea.GetComponent<TeleportArea>().SetLocked(false);
+        //}
     }
 
     void RetractTrapDoor(){

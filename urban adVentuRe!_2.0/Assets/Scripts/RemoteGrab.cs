@@ -97,7 +97,7 @@ public class RemoteGrab : MonoBehaviour
 
     public void GrabBow(GameObject obj)
     {
-        Debug.LogError("Object: " + obj.name);
+        //Debug.LogError("Object: " + obj.name);
 
         Interactable interactable = obj.GetComponent<Interactable>();
         SteamVR_Input_Sources inputSource = hand.handType;
