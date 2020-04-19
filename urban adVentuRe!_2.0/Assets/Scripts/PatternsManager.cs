@@ -9,6 +9,8 @@ public class PatternsManager : MonoBehaviour
     public Renderer[] tileRenderers;
     public GameObject[] targets;
     public Renderer[] targetRenderers;
+    public GameObject[] progresses;
+    public Renderer[] progressesRenderers;
     public int RoundsToWin = 2;
     public PuzzleDoor door;
     private Color[] colors = new Color[] {Color.red, Color.green, Color.blue, Color.magenta, Color.yellow, Color.cyan };
@@ -19,7 +21,7 @@ public class PatternsManager : MonoBehaviour
     private int [] sequence;
     private int [] playerSequence;
     private int playerIndex = 0;
-    private float lerpDuration = 0.3f;
+    private float lerpDuration = 0.15f;
     private int frame = 0;
 
     // Start is called before the first frame update
@@ -44,6 +46,13 @@ public class PatternsManager : MonoBehaviour
 //            targetRenderers[i].material.color = colors[i];
 
             targets[i].AddComponent<PatternTarget>();
+        }
+
+        progresses = GameObject.FindGameObjectsWithTag("PatternProgress");
+        progressesRenderers = new Renderer[progresses.Length];
+        for(int i = 0; i < progresses.Length; ++i){
+            progressesRenderers[i] = progresses[i].GetComponent<Renderer>();
+            progressesRenderers[i].material.color = Color.red;
         }
         //StartGame();
     }
@@ -85,7 +94,9 @@ public class PatternsManager : MonoBehaviour
         isPlayerTurn = false;
         playerIndex = 0;
         round = 0;
-        
+        foreach(Renderer renderer in progressesRenderers){
+            renderer.material.color = Color.red;
+        }
         yield return FlashAllTiles(Color.white, Color.red, 3);
 
         isGameStarted = false;
@@ -132,6 +143,8 @@ public class PatternsManager : MonoBehaviour
         
     }
     IEnumerator WinRound(){
+        progressesRenderers[round-1].material.color = Color.green;
+
         yield return FlashAllTiles(Color.white, Color.green, 3);
         if(round < RoundsToWin){
             yield return StartRound();
@@ -145,7 +158,7 @@ public class PatternsManager : MonoBehaviour
         playerIndex = 0;
         isRoundRunning = true;
         round++;
-        sequence = new int[round*2];
+        sequence = new int[round+3];
         string stringquence = "";
         System.Random rand = new System.Random();
         for(int i = 0; i < sequence.Length; ++i){
@@ -154,11 +167,11 @@ public class PatternsManager : MonoBehaviour
             stringquence += ", ";
         }
         Debug.Log(stringquence);
-        playerSequence = new int[round*2];
+        playerSequence = new int[round+4];
         for(int i = 0; i < sequence.Length; ++i){
             int target = sequence[i];
             float elapsedtime = 0;
-            while(elapsedtime < .75){
+            while(elapsedtime < .5){
                 elapsedtime += Time.deltaTime;
                 yield return null;
             }
@@ -169,7 +182,7 @@ public class PatternsManager : MonoBehaviour
                 yield return null;
             }
             elapsedtime = 0;
-            while(elapsedtime < 0.5){
+            while(elapsedtime < 0.25){
                 elapsedtime += Time.deltaTime;
                 yield return null;
             }

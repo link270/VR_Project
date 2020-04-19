@@ -26,8 +26,8 @@ namespace Valve.VR.InteractionSystem
         public IEnumerator ResetIndiana(){
             //Fade player's vision to black
             SteamVR_Fade.Start(Color.red, 0.2f);
+            
             //Move the player
-
             foreach(GameObject statue in statues){
                 statue.GetComponent<SimpleAttach>().DetachSelfFromHand();
             }
@@ -63,6 +63,9 @@ namespace Valve.VR.InteractionSystem
             ballRigidbody.velocity = Vector3.zero;
             ballRigidbody.angularVelocity = Vector3.zero;
             ball.transform.position = ballRestore.transform.position;
+            ball.GetComponent<AudioSource>().Stop();
+
+
         }
 
         // Update is called once per frame

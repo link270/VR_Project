@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class StatuePuzzleResult : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class StatuePuzzleResult : MonoBehaviour
     private GameObject [] statues;
     private List<Orientation> orientations;
     public GameObject wall;
+    public TeleportArea teleportArea;
 
     private float initPos;
     private float curPos;
@@ -63,6 +65,7 @@ public class StatuePuzzleResult : MonoBehaviour
     }
 
     private IEnumerator OpenDoor(){
+        teleportArea.SetLocked(false);
         float startTime = Time.time;
         float duration = 1f;
         float endTime = startTime + duration;
@@ -78,6 +81,7 @@ public class StatuePuzzleResult : MonoBehaviour
     }
 
     private IEnumerator CloseDoor(){
+        teleportArea.SetLocked(true);
         float startTime = Time.time;
         float duration = 1f;
         float endTime = startTime + duration;

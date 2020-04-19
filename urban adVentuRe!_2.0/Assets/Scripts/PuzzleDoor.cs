@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Valve.VR.InteractionSystem;
 public class PuzzleDoor : MonoBehaviour
 {
     private float initPos;
     private float curPos;
     private float endPos;
     public GameObject door;
+    public TeleportArea teleportArea;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PuzzleDoor : MonoBehaviour
         endPos += 2f;
     }
     public IEnumerator RaiseDoor(){
+        teleportArea.SetLocked(false);
         float startTime = Time.time;
         float duration = 1f;
         float endTime = startTime + duration;

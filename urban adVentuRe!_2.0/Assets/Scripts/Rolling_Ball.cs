@@ -22,6 +22,7 @@ public class Rolling_Ball : MonoBehaviour
         
     }
     void OnCollisionEnter(Collision collider){
+        Debug.Log(collider.gameObject.name + ", " + collider.gameObject.tag);
         if(collider.gameObject.tag == "Player"){
             Debug.Log("***BLARG, you died!");
             StartCoroutine(restore.GetComponent<IndianaReset>().ResetIndiana());
