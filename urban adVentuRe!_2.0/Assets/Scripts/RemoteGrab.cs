@@ -26,6 +26,9 @@ public class RemoteGrab : MonoBehaviour
         laserPointer = GetComponent<SteamVR_LaserPointer>();
         laserPointer.PointerIn += PointerInside;
         laserPointer.PointerOut += PointerOutside;
+
+        // Remove if we want to change the pointer lines.
+        laserPointer.thickness = 0.001f;
     }
 
     public void Update()
@@ -42,7 +45,7 @@ public class RemoteGrab : MonoBehaviour
         else if (blankScript != null)
         {
             blankScript.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            laserPointer.thickness = 0.0f;
+            //laserPointer.thickness = 0.0f;
         }
     }
 
@@ -89,7 +92,7 @@ public class RemoteGrab : MonoBehaviour
 
         blankScript = hit.collider.gameObject.GetComponentInChildren<BlankScript>();
         blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        laserPointer.thickness = 0.001f;
+        //laserPointer.thickness = 0.001f;
     }
 
     public void GrabBow(GameObject obj)
@@ -111,6 +114,6 @@ public class RemoteGrab : MonoBehaviour
 
         blankScript = obj.GetComponentInChildren<BlankScript>();
         blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        laserPointer.thickness = 0.001f;
+        //laserPointer.thickness = 0.001f;
     }
 }

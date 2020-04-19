@@ -121,7 +121,7 @@ public class RetractIfStatuesRemoved : MonoBehaviour
 
     void UnlockTeleports()
     {
-        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Telportarea");
+        LockedTeleports = GameObject.FindGameObjectsWithTag("Indiana_Locked_Teleportarea");
         foreach(var teleportArea in LockedTeleports)
         {
             teleportArea.GetComponent<TeleportArea>().SetLocked(false);
