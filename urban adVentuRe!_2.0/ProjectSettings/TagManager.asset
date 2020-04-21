@@ -23,6 +23,7 @@ TagManager:
   - PatternProgress
   - PatternHint
   - ButtonPressed
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - PuzzleObjects
   - Grabable
   - Bow
-  - 
+  - FireLayer
   - 
   - 
   - 

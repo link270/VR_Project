@@ -27,7 +27,7 @@ public class audioPlayerTiggered : MonoBehaviour
     {
         var distance = Vector3.Distance(this.transform.position, player.transform.position);
 
-        Debug.Log(distance);
+//        Debug.Log(distance);
 
         if(!played && distance < sensitivity){
             played = true;
