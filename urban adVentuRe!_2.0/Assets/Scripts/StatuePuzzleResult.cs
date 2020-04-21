@@ -10,6 +10,7 @@ public class StatuePuzzleResult : MonoBehaviour
     private List<Orientation> orientations;
     public GameObject wall;
     public TeleportArea teleportArea;
+    public AudioSource audio;
 
     private float initPos;
     private float curPos;
@@ -29,7 +30,7 @@ public class StatuePuzzleResult : MonoBehaviour
         curPos = initPos;
         endPos = initPos + 90f;
 
-        isClosed = false;
+        isClosed = true;
         isOpen = false;
     }
 
@@ -46,13 +47,11 @@ public class StatuePuzzleResult : MonoBehaviour
             //Debug.Log("Hi");
 
             isOpen = true;
-            isClosed = false;
             Retract();
             //moved = true;
         } else if (!shouldUpdate && !isClosed){
             //Debug.Log("Ho");
             isClosed = true;
-            isOpen = false;
             Close();
         } 
     }
@@ -66,6 +65,7 @@ public class StatuePuzzleResult : MonoBehaviour
     }
 
     private IEnumerator OpenDoor(){
+        audio.Play();
         teleportArea.SetLocked(false);
         float startTime = Time.time;
         float duration = 1f;
@@ -78,10 +78,11 @@ public class StatuePuzzleResult : MonoBehaviour
             curPos += angle * Time.deltaTime;
             yield return null;
         }
-
+        isClosed = false;
     }
 
     private IEnumerator CloseDoor(){
+        audio.Play();
         teleportArea.SetLocked(true);
         float startTime = Time.time;
         float duration = 1f;
@@ -94,6 +95,7 @@ public class StatuePuzzleResult : MonoBehaviour
             curPos += angle * Time.deltaTime;
             yield return null;
         }
+        isOpen = false;
     }
 
     private IEnumerator MoveWall(float newPos){

@@ -19,6 +19,7 @@ public class PuzzleDoor : MonoBehaviour
         endPos += 2f;
     }
     public IEnumerator RaiseDoor(){
+        gameObject.GetComponent<AudioSource>().Play();
         teleportArea.SetLocked(false);
         float startTime = Time.time;
         float duration = 1f;

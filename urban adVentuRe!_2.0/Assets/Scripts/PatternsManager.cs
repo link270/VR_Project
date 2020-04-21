@@ -13,6 +13,8 @@ public class PatternsManager : MonoBehaviour
     public Renderer[] progressesRenderers;
     public int RoundsToWin = 2;
     public PuzzleDoor door;
+    public AudioSource wrong;
+    public AudioSource correct;
     private Color[] colors = new Color[] {Color.red, Color.green, Color.blue, Color.magenta, Color.yellow, Color.cyan };
     private bool isGameStarted = false;
     private bool isRoundRunning = false;
@@ -96,7 +98,7 @@ public class PatternsManager : MonoBehaviour
     }
 
     IEnumerator LoseRound(){
-
+        wrong.Play();
         if(!playedHint)
         {
             Hint.Play();
@@ -156,7 +158,7 @@ public class PatternsManager : MonoBehaviour
     }
     IEnumerator WinRound(){
         progressesRenderers[round-1].material.color = Color.green;
-
+        correct.Play();
         yield return FlashAllTiles(Color.white, Color.green, 3);
         if(round < RoundsToWin){
             yield return StartRound();
