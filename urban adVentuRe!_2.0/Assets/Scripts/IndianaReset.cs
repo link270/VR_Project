@@ -24,6 +24,7 @@ namespace Valve.VR.InteractionSystem
             playerRestore = GameObject.Find("PlayerRestore");
             ball = GameObject.Find("IndianaBall");
             ballRestore = GameObject.Find("IndianaBallRestore");
+            audio = GameObject.Find("DeathSound");
         }
 
         public IEnumerator ResetIndiana(){
