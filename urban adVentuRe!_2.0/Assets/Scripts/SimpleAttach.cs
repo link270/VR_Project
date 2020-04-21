@@ -28,7 +28,6 @@ public class SimpleAttach : MonoBehaviour
     }
 
     public void DetachSelfFromHand(){
-        Debug.Log("****InsideDetatchSelf");
         if(isHandAssigned){
             myHand.DetachObject(gameObject);
         }

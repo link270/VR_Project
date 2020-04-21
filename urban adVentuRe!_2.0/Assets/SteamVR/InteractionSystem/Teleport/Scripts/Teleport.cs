@@ -70,6 +70,7 @@ namespace Valve.VR.InteractionSystem
 		private Transform pointerStartTransform;
 		private Hand pointerHand = null;
 		private Player player = null;
+		private PlayerController playerController = null;
 		private TeleportArc teleportArc = null;
 
 		private bool visible = false;
@@ -174,7 +175,7 @@ namespace Valve.VR.InteractionSystem
 			HidePointer();
 
 			player = InteractionSystem.Player.instance;
-
+			playerController = player.GetComponent<PlayerController>();
 			if ( player == null )
 			{
 				Debug.LogError("<b>[SteamVR Interaction]</b> Teleport: No Player instance found in map.", this);

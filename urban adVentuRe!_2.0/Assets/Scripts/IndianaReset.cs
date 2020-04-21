@@ -6,16 +6,19 @@ namespace Valve.VR.InteractionSystem
 {
         public class IndianaReset : MonoBehaviour
     {
+        public AudioSource audio;
         // Start is called before the first frame update
         private GameObject [] restores;
         private GameObject playerRestore; 
         private GameObject[] statues;
         private Player player;
+        private PlayerController controller;
         private GameObject ball;
         private GameObject ballRestore;
         void Start()
         {
             player = Player.instance;
+            controller = player.GetComponent<PlayerController>();
             restores = GameObject.FindGameObjectsWithTag("IndianaRestores");
             statues = GameObject.FindGameObjectsWithTag("IndianaStatues");
             playerRestore = GameObject.Find("PlayerRestore");
@@ -25,8 +28,9 @@ namespace Valve.VR.InteractionSystem
 
         public IEnumerator ResetIndiana(){
             //Fade player's vision to black
+            controller.isTeleporting = true;
             SteamVR_Fade.Start(Color.red, 0.2f);
-            
+            audio.Play();
             //Move the player
             foreach(GameObject statue in statues){
                 statue.GetComponent<SimpleAttach>().DetachSelfFromHand();
@@ -65,6 +69,7 @@ namespace Valve.VR.InteractionSystem
             ball.transform.position = ballRestore.transform.position;
             ball.GetComponent<AudioSource>().Stop();
 
+            controller.isTeleporting = false;
 
         }
 
