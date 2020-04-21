@@ -17,7 +17,7 @@ public class PatternsManager : MonoBehaviour
     public AudioSource correct;
     private Color[] colors = new Color[] {Color.red, Color.green, Color.blue, Color.magenta, Color.yellow, Color.cyan };
     private bool isGameStarted = false;
-    private bool isRoundRunning = false;
+    //private bool isRoundRunning = false;
     private bool isPlayerTurn = false;
     private int round = 0;
     private int [] sequence;
@@ -114,7 +114,7 @@ public class PatternsManager : MonoBehaviour
         yield return FlashAllTiles(Color.white, Color.red, 3);
 
         isGameStarted = false;
-        isRoundRunning = false;
+        //isRoundRunning = false;
         StartGame();
     }
 
@@ -170,7 +170,7 @@ public class PatternsManager : MonoBehaviour
     IEnumerator StartRound(){
         isPlayerTurn = false;
         playerIndex = 0;
-        isRoundRunning = true;
+        //isRoundRunning = true;
         round++;
         sequence = new int[round+3];
         string stringquence = "";
@@ -213,7 +213,7 @@ public class PatternsManager : MonoBehaviour
 
     void EndGame(){
         isGameStarted = false;
-        isRoundRunning = false;
+        //isRoundRunning = false;
         round = 0;
     }
     void WinGame(){

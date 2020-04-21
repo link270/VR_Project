@@ -10,7 +10,7 @@ public class StatuePuzzleResult : MonoBehaviour
     private List<Orientation> orientations;
     public GameObject wall;
     public TeleportArea teleportArea;
-    public AudioSource audio;
+    public AudioSource sound;
 
     private float initPos;
     private float curPos;
@@ -65,7 +65,7 @@ public class StatuePuzzleResult : MonoBehaviour
     }
 
     private IEnumerator OpenDoor(){
-        audio.Play();
+        sound.Play();
         teleportArea.SetLocked(false);
         float startTime = Time.time;
         float duration = 1f;
@@ -82,7 +82,7 @@ public class StatuePuzzleResult : MonoBehaviour
     }
 
     private IEnumerator CloseDoor(){
-        audio.Play();
+        sound.Play();
         teleportArea.SetLocked(true);
         float startTime = Time.time;
         float duration = 1f;

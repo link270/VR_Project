@@ -25,6 +25,8 @@ TagManager:
   - ButtonPressed
   - Fire
   - Credits
+  - ToiletPaper
+  - Thanks
   layers:
   - Default
   - TransparentFX

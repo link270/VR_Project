@@ -12,9 +12,6 @@ namespace Valve.VR.InteractionSystem
         private PlayerController controller;
         private bool isTriggered = false;
 
-
-
-
         public void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.layer == 8 && !isTriggered){

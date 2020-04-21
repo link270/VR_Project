@@ -6,7 +6,7 @@ namespace Valve.VR.InteractionSystem
 {
         public class IndianaReset : MonoBehaviour
     {
-        public AudioSource audio;
+        public AudioSource sound;
         // Start is called before the first frame update
         private GameObject [] restores;
         private GameObject playerRestore; 
@@ -30,7 +30,7 @@ namespace Valve.VR.InteractionSystem
             //Fade player's vision to black
             controller.isTeleporting = true;
             SteamVR_Fade.Start(Color.red, 0.2f);
-            audio.Play();
+            sound.Play();
             //Move the player
             foreach(GameObject statue in statues){
                 statue.GetComponent<SimpleAttach>().DetachSelfFromHand();
