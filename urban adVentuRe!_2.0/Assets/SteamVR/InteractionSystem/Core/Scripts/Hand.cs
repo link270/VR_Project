@@ -1433,18 +1433,34 @@ namespace Valve.VR.InteractionSystem
             hapticAction.Execute(0, duration, frequency, amplitude, handType);
         }
 
-        public void ShowGrabHint()
+        public void ShowGripHint()
+        {
+            ControllerButtonHints.ShowButtonHint(this, grabGripAction); //todo: assess
+        }
+
+        public void ShowPinchHint()
         {
             ControllerButtonHints.ShowButtonHint(this, grabPinchAction); //todo: assess
         }
 
-        public void HideGrabHint()
+        public void HideGripHint()
+        {
+            ControllerButtonHints.HideButtonHint(this, grabGripAction); //todo: assess
+            ControllerButtonHints.HideTextHint(this, grabGripAction);
+        }
+
+        public void HidePinchHint()
         {
             ControllerButtonHints.HideButtonHint(this, grabPinchAction); //todo: assess
             ControllerButtonHints.HideTextHint(this, grabPinchAction);
         }
 
-        public void ShowGrabHint(string text)
+        public void ShowGripHint(string text)
+        {
+            ControllerButtonHints.ShowTextHint(this, grabGripAction, text);
+        }
+
+        public void ShowPinchHint(string text)
         {
             ControllerButtonHints.ShowTextHint(this, grabPinchAction, text);
         }

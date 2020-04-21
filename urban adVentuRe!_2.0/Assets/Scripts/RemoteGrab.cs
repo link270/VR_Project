@@ -6,13 +6,13 @@ using Valve.VR;
 public class RemoteGrab : MonoBehaviour
 {
     private SteamVR_LaserPointer laserPointer;
-
+    private Transform pointer;
     private Hand hand;
     private GameObject attachedObj;
     private bool isAttached;
 
-    //public Hand.AttachmentFlags attachmentFlags = Hand.AttachmentFlags.ParentToHand | Hand.AttachmentFlags.DetachFromOtherHand | Hand.AttachmentFlags.TurnOnKinematic;
-    public Transform pointer;
+    public bool showHint = true;
+    public GameObject PointerObject;
     public LayerMask Grabable;
     public LayerMask BowGrabable;
     public float maxGrabbingDistance = 15f;
@@ -23,29 +23,42 @@ public class RemoteGrab : MonoBehaviour
         hand = GetComponent<Hand>();
         isAttached = false;
         attachedObj = null;
-        laserPointer = GetComponent<SteamVR_LaserPointer>();
+        pointer = PointerObject.GetComponent<Transform>();
+        laserPointer = PointerObject.GetComponent<SteamVR_LaserPointer>();
         laserPointer.PointerIn += PointerInside;
         laserPointer.PointerOut += PointerOutside;
-
-        // Remove if we want to change the pointer lines.
-        laserPointer.thickness = 0.001f;
+        laserPointer.thickness = 0.000f;
     }
 
     public void Update()
     {
+        if(showHint) hand.ShowGripHint("Activate Remote Grab");
         RaycastHit hit;
-        if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, Grabable) && hand.currentAttachedObject == null)
+        if (hand.grabGripAction[hand.handType].state == true)
         {
-            Grab(hit);
-        } 
-        else if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, BowGrabable) && hand.currentAttachedObject == null)
-        {
-            GrabBow(GameObject.FindGameObjectWithTag("Bow"));
+            if (showHint)
+            {
+                showHint = false;
+                hand.HideGripHint();
+            }
+            laserPointer.thickness = 0.002f;
+            if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, Grabable) && hand.currentAttachedObject == null)
+            {
+                Grab(hit);
+            }
+            else if (Physics.Raycast(pointer.position, pointer.forward, out hit, maxGrabbingDistance, BowGrabable) && hand.currentAttachedObject == null)
+            {
+                GrabBow(GameObject.FindGameObjectWithTag("Bow"));
+            }
+            else if (blankScript != null)
+            {
+                laserPointer.color = Color.black;
+                blankScript.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
-        else if (blankScript != null)
+        else
         {
-            blankScript.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            //laserPointer.thickness = 0.0f;
+            laserPointer.thickness = 0.0f;
         }
     }
 
@@ -63,7 +76,7 @@ public class RemoteGrab : MonoBehaviour
     {
         if (e.target.gameObject.layer == 11)
         {
-            hand.ShowGrabHint("Grab " + e.target.gameObject.name);
+            hand.ShowPinchHint("Grab " + e.target.gameObject.name);
         }
     }
 
@@ -71,7 +84,7 @@ public class RemoteGrab : MonoBehaviour
     {
         if (e.target.gameObject.layer == 11)
         {
-            hand.HideGrabHint();
+            hand.HidePinchHint();
         }
     }
 
@@ -92,7 +105,7 @@ public class RemoteGrab : MonoBehaviour
 
         blankScript = hit.collider.gameObject.GetComponentInChildren<BlankScript>();
         blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        //laserPointer.thickness = 0.001f;
+        laserPointer.color = Color.yellow;
     }
 
     public void GrabBow(GameObject obj)
@@ -114,6 +127,6 @@ public class RemoteGrab : MonoBehaviour
 
         blankScript = obj.GetComponentInChildren<BlankScript>();
         blankScript.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-        //laserPointer.thickness = 0.001f;
+        laserPointer.color = Color.yellow;
     }
 }

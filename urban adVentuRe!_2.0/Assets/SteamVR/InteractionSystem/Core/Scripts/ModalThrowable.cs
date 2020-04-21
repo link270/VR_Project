@@ -37,7 +37,7 @@ namespace Valve.VR.InteractionSystem
                     hand.AttachObject(gameObject, startingGrabType, attachmentFlags, attachmentOffset);
                 }
 
-                hand.HideGrabHint();
+                hand.HidePinchHint();
             }
         }
         protected override void HandAttachedUpdate(Hand hand)
