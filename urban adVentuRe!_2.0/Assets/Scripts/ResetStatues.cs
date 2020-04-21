@@ -10,9 +10,14 @@ public class ResetStatues : MonoBehaviour
     public HoverButton hoverButton;
     private GameObject [] statues;
     private List<Orientation> orientations;
+
+    private AudioSource Hint;
+    private bool playedHint;
     // Start is called before the first frame update
     void Start()
     {
+        playedHint = false;
+        Hint = GetComponent<AudioSource>();
         statues = GameObject.FindGameObjectsWithTag("Statues");
         orientations = new List<Orientation>();
         foreach(GameObject statue in statues){
@@ -23,6 +28,10 @@ public class ResetStatues : MonoBehaviour
     }
     private void OnButtonDown(Hand hand)
     {
+        if(!playedHint){
+            playedHint = true;
+            Hint.Play();
+        }
         StartCoroutine(Rotate());
     }
     

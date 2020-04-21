@@ -21,6 +21,8 @@ TagManager:
   - WallTargets
   - Bow
   - PatternProgress
+  - PatternHint
+  - ButtonPressed
   layers:
   - Default
   - TransparentFX

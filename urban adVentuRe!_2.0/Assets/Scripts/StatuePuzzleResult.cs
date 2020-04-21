@@ -44,6 +44,7 @@ public class StatuePuzzleResult : MonoBehaviour
 
         if(shouldUpdate && !isOpen){
             //Debug.Log("Hi");
+
             isOpen = true;
             isClosed = false;
             Retract();

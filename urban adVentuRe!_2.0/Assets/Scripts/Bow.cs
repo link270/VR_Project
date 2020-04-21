@@ -18,6 +18,7 @@ public class Bow : MonoBehaviour
     private Arrow newArrow = null;
     private Animator animator = null;
     private Queue<Arrow> activeArrows;
+
     private bool fired = true;
 
     private float pullValue = 0.0f;

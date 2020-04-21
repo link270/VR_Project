@@ -24,9 +24,14 @@ public class PatternsManager : MonoBehaviour
     private float lerpDuration = 0.15f;
     private int frame = 0;
 
+    private bool playedHint;
+    private AudioSource Hint;
+
     // Start is called before the first frame update
     void Start()
     {
+        playedHint = false;
+        Hint = GameObject.FindGameObjectWithTag("PatternHint").GetComponent<AudioSource>();
         tiles = GameObject.FindGameObjectsWithTag("PatternTiles");
         tileRenderers = new Renderer[tiles.Length];
 
@@ -91,6 +96,13 @@ public class PatternsManager : MonoBehaviour
     }
 
     IEnumerator LoseRound(){
+
+        if(!playedHint)
+        {
+            Hint.Play();
+            playedHint = true;
+        }
+
         isPlayerTurn = false;
         playerIndex = 0;
         round = 0;
