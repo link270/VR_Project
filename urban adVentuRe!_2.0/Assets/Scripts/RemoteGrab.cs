@@ -66,7 +66,15 @@ public class RemoteGrab : MonoBehaviour
     {
         if (isAttached)
         {
-            hand.AttachObject(attachedObj, GrabTypes.Pinch, attachmentOffset: attachedObj.GetComponent<Throwable>().attachmentOffset);
+            if (gameObject.name == "RightHand")
+            {
+                hand.AttachObject(attachedObj, GrabTypes.Pinch, attachmentOffset: attachedObj.GetComponent<Throwable>().rightAttachmentOffset);
+            }
+            else
+            {
+                hand.AttachObject(attachedObj, GrabTypes.Pinch, attachmentOffset: attachedObj.GetComponent<Throwable>().attachmentOffset);
+            }
+            
             attachedObj = null;
             isAttached = false;
         }
