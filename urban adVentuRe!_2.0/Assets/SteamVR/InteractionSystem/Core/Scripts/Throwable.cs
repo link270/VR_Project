@@ -109,7 +109,7 @@ namespace Valve.VR.InteractionSystem
 
 			if ( showHint )
 			{
-                hand.ShowGrabHint();
+                hand.ShowPinchHint();
 			}
 		}
 
@@ -117,7 +117,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void OnHandHoverEnd( Hand hand )
 		{
-            hand.HideGrabHint();
+            hand.HidePinchHint();
 		}
 
 
@@ -129,7 +129,7 @@ namespace Valve.VR.InteractionSystem
             if (startingGrabType != GrabTypes.None)
             {
 				hand.AttachObject( gameObject, startingGrabType, attachmentFlags, attachmentOffset );
-                hand.HideGrabHint();
+                hand.HidePinchHint();
             }
 		}
 

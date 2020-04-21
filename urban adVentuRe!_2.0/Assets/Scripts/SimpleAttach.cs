@@ -19,12 +19,12 @@ public class SimpleAttach : MonoBehaviour
 
     private void OnHandHoverBegin(Hand hand)
     {
-        hand.ShowGrabHint();
+        hand.ShowPinchHint();
     }
 
     private void OnHandHoverEnd(Hand hand)
     {
-        hand.HideGrabHint();
+        hand.HidePinchHint();
     }
 
     public void DetachSelfFromHand(){

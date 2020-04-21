@@ -176,7 +176,7 @@ namespace Valve.VR.InteractionSystem
 
 			if (requireGrabActionToTake && showTriggerHint )
 			{
-                hand.ShowGrabHint("PickUp");
+                hand.ShowPinchHint("PickUp");
 			}
 		}
 
@@ -248,7 +248,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( !justPickedUpItem && requireGrabActionToTake && showTriggerHint )
 			{
-                hand.HideGrabHint();
+                hand.HidePinchHint();
 			}
 
 			justPickedUpItem = false;
@@ -310,7 +310,7 @@ namespace Valve.VR.InteractionSystem
 
 			if ( showTriggerHint )
 			{
-                hand.HideGrabHint();
+                hand.HidePinchHint();
 			}
 
 			if ( itemPackage.otherHandItemPrefab != null )
