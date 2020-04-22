@@ -32,6 +32,9 @@ public class StatuePuzzleResult : MonoBehaviour
 
         isClosed = true;
         isOpen = false;
+//        teleportArea = GameObject.Find("AfterStatues").GetComponent<TeleportArea>();
+
+        sound = GameObject.Find("GateOpenSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

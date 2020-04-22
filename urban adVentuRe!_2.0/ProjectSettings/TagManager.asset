@@ -27,6 +27,7 @@ TagManager:
   - Credits
   - ToiletPaper
   - Thanks
+  - AfterStatuesTeleport
   layers:
   - Default
   - TransparentFX
