@@ -28,9 +28,11 @@ public class RetractIfStatuesRemoved : MonoBehaviour
     private bool entranceClosed;
 
 
-    private bool ballRolling;
+    public bool ballRolling;
 
     private bool puzzleSolved;
+
+    public bool isActive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -79,48 +81,48 @@ public class RetractIfStatuesRemoved : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isActive){
+            bool allRemoved = removed.All(pedestal => pedestal.Removed == true);
+            
+    //        Debug.Log(Vector3.Distance(player.transform.position, TrapDoorPos));
 
-        bool allRemoved = removed.All(pedestal => pedestal.Removed == true);
-        
-//        Debug.Log(Vector3.Distance(player.transform.position, TrapDoorPos));
-
-        if(!entranceClosed && Vector3.Distance(player.transform.position, TrapDoorPos) < 8){
-            entranceSliding.Play();
-            entranceClosed = true;
-            CloseEntrance();
-        }
+            if(!entranceClosed && Vector3.Distance(player.transform.position, TrapDoorPos) < 8){
+                entranceSliding.Play();
+                entranceClosed = true;
+                CloseEntrance();
+            }
 
 
-        if(!puzzleSolved && allRemoved){
-            SolvePuzzle();
-        }
-
-        if(Ball != null && (detectBall.BallPresent || Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40))
-        {
-            if(Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40){
+            if(!puzzleSolved && allRemoved){
                 SolvePuzzle();
             }
-            ballRollingSound.Stop();
-            CloseTrap();
-            Destroy(Ball, ballRollingSound.clip.length);
-            detectBall.BallPresent = false;
-        }
 
-        if(!ballRolling && removed.Where(pedestal => pedestal.Removed == true).ToList().Count >= 1){
-            
-            if(!warning.isPlaying && warningPlayed == false){
-                warning.Play();
-                warningPlayed = true;
+            if(Ball != null && (detectBall.BallPresent || Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40))
+            {
+                if(Vector3.Distance(Ball.transform.position, TrapDoorPos) > 40){
+                    SolvePuzzle();
+                }
+                ballRollingSound.Stop();
+                CloseTrap();
+                Destroy(Ball, ballRollingSound.clip.length);
+                detectBall.BallPresent = false;
             }
 
-            if(!warning.isPlaying){
-                ballRolling = true;
-                ballRollingSound.Play();
-                Debug.Log("Activating stuff");
-                Ball.GetComponent<Rigidbody>().useGravity = true;
+            if(!ballRolling && removed.Where(pedestal => pedestal.Removed == true).ToList().Count >= 1){
+                
+                if(!warning.isPlaying && warningPlayed == false){
+                    warning.Play();
+                    warningPlayed = true;
+                }
+
+                if(!warning.isPlaying){
+                    ballRolling = true;
+                    ballRollingSound.Play();
+                    Debug.Log("Activating stuff");
+                    Ball.GetComponent<Rigidbody>().useGravity = true;
+                }
             }
         }
-        
     }
 
     void SolvePuzzle(){

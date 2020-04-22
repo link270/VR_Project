@@ -7,6 +7,7 @@ namespace Valve.VR.InteractionSystem
         public class IndianaReset : MonoBehaviour
     {
         public AudioSource sound;
+        public GameObject solver;
         // Start is called before the first frame update
         private GameObject [] restores;
         private GameObject playerRestore; 
@@ -25,6 +26,7 @@ namespace Valve.VR.InteractionSystem
             ball = GameObject.Find("IndianaBall");
             ballRestore = GameObject.Find("IndianaBallRestore");
             sound = GameObject.Find("DeathSound").GetComponent<AudioSource>();
+            solver = GameObject.Find("TrapFloorForBall");
         }
 
         public IEnumerator ResetIndiana(){
@@ -32,6 +34,7 @@ namespace Valve.VR.InteractionSystem
             controller.isTeleporting = true;
             SteamVR_Fade.Start(Color.red, 0.2f);
             sound.Play();
+            solver.GetComponent<RetractIfStatuesRemoved>().isActive = false;
             //Move the player
             foreach(GameObject statue in statues){
                 statue.GetComponent<SimpleAttach>().DetachSelfFromHand();
@@ -45,6 +48,7 @@ namespace Valve.VR.InteractionSystem
             Rigidbody rigidbody;
             for (int i = 0; i < restores.Length; ++i){
                 rigidbody = statues[i].GetComponent<Rigidbody>();
+                statues[i].transform.rotation = Quaternion.Euler(new Vector3(-90,0,-90));
                 statues[i].transform.position = restores[i].transform.position;
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
@@ -57,10 +61,7 @@ namespace Valve.VR.InteractionSystem
             ballRigidbody.angularVelocity = Vector3.zero;
             ball.transform.position = ballRestore.transform.position;
 
-            //Restore player's vision
-            yield return new WaitForSeconds(0.2f);
-            SteamVR_Fade.Start(Color.clear, 0.2f);
-            yield return new WaitForSeconds(0.2f);
+
             
             yield return new WaitForSeconds(1);
             //Reset the ball again just in case
@@ -71,7 +72,11 @@ namespace Valve.VR.InteractionSystem
             ball.GetComponent<AudioSource>().Stop();
 
             controller.isTeleporting = false;
-
+            solver.GetComponent<RetractIfStatuesRemoved>().isActive = true;
+            solver.GetComponent<RetractIfStatuesRemoved>().ballRolling = false;
+            
+            SteamVR_Fade.Start(Color.clear, 0.2f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         // Update is called once per frame
